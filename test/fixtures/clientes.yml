@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rutCliente: MyString
+  nombresCliente: MyString
+  emailCliente: MyString
+  fechaNacimiento: 2018-11-22 16:15:42
+  nickName: MyString
+  contraseñaCliente: MyString
+  direccionCliente: MyString
+
+two:
+  rutCliente: MyString
+  nombresCliente: MyString
+  emailCliente: MyString
+  fechaNacimiento: 2018-11-22 16:15:42
+  nickName: MyString
+  contraseñaCliente: MyString
+  direccionCliente: MyString
