@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: sistemadb_production
-  username: sistemadb
+  username: sour
   password: <%= ENV['SISTEMADB_DATABASE_PASSWORD'] %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcionHabitacion: MyText
+  numeroPersonas: 1
+  tipoHabitacion: MyString
+  estadoHabitacion: false
+
+two:
+  descripcionHabitacion: MyText
+  numeroPersonas: 1
+  tipoHabitacion: MyString
+  estadoHabitacion: false

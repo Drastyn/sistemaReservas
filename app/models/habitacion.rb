@@ -1,0 +1,2 @@
+class Habitacion < ApplicationRecord
+end
