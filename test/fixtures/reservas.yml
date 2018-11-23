@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fechaIngreso: 2018-11-22 21:10:59
+  fechaSalida: 2018-11-22 21:10:59
+  cantidadPersonas: 1
+  cantidadHabitaciones: 1
+  estadoReserva: MyString
+  precioReserva: 1
+
+two:
+  fechaIngreso: 2018-11-22 21:10:59
+  fechaSalida: 2018-11-22 21:10:59
+  cantidadPersonas: 1
+  cantidadHabitaciones: 1
+  estadoReserva: MyString
+  precioReserva: 1
