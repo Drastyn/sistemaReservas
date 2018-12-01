@@ -1,0 +1,9 @@
+class WelcomeController < ApplicationController
+  def index
+    @face = 'https://www.facebook.com/hostelmyhouse/'
+    @booking = 'https://www.booking.com/hotel/cl/my-house-hostel.es.html'
+    @nosotros = 'http://localhost:3000/nosotros/index'
+    @direccion = 'Bellavista 115, 2580067 Viña del Mar, Chile'
+    @fono = 'Aqui va el telefono'
+  end
+end

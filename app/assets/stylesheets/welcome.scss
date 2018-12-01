@@ -1,0 +1,53 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#titulo h1{
+  text-align: center;
+  font-family: 'Chalinka';
+  font-style: italic;
+  padding: -40px;
+  font-size: 5em;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+  -webkit-text-fill-color: #cc0000;
+  -webkit-text-stroke: 2px black;
+  margin: -50px;
+}
+
+
+#mySidenav a{
+    position: absolute;
+    left: -135px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 130px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+
+#mySidenav a:hover{
+    left: 0;
+}
+
+#info{
+    top: 80px;
+    background-color: #332F2C;
+}
+
+#Face {
+    top: 140px;
+    background-color: #3b5998;
+}
+
+#booking {
+    top: 200px;
+    background-color: #003580;
+}
+
+#contacto, p{
+  padding: -15px;
+  margin: 0px 0;
+}

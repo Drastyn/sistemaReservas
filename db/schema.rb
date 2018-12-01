@@ -66,4 +66,5 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reservas", "habitacions"
 end
