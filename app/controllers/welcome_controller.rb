@@ -4,6 +4,6 @@ class WelcomeController < ApplicationController
     @booking = 'https://www.booking.com/hotel/cl/my-house-hostel.es.html'
     @instagram = 'https://www.instagram.com/hostalmyhouse/'
     @direccion = 'Bellavista 115, 2580067 Viña del Mar, Chile'
-    @fono = 'Aqui va el telefono'
+    @fono = ' +569 6539 9542'
   end
 end
