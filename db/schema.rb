@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.boolean "estadoHabitacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tarifas_id"
     t.integer "tarifa_id"
+    t.index ["tarifas_id"], name: "index_habitacions_on_tarifas_id"
   end
 
   create_table "reservas", force: :cascade do |t|
@@ -56,8 +58,12 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.integer "precioReserva"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "clientes_id"
     t.integer "cliente_id"
     t.integer "habitacion_id"
+    t.bigint "habitacions_id"
+    t.index ["clientes_id"], name: "index_reservas_on_clientes_id"
+    t.index ["habitacions_id"], name: "index_reservas_on_habitacions_id"
   end
 
   create_table "tarifas", force: :cascade do |t|
@@ -66,5 +72,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "reservas", "habitacions"
+  add_foreign_key "habitacions", "tarifas", column: "tarifas_id"
+  add_foreign_key "reservas", "clientes", column: "clientes_id"
+  add_foreign_key "reservas", "habitacions", column: "habitacions_id"
 end

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails sistemaReservas: production" uuid="3eb1804e-4f52-4bef-81bc-a20913d6bf66">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
       <user-name>sour</user-name>
     </data-source>
     <data-source name="Rails sistemaReservas: development" uuid="6d67c479-967b-48e2-80ec-ef4e5ed401b5">
@@ -10,7 +10,7 @@
       <user-name>sour</user-name>
     </data-source>
     <data-source name="Rails sistemaReservas: test" uuid="307bb5f0-148f-480a-86ea-3dc7baaad290">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
       <user-name>sour</user-name>
     </data-source>
   </component>
