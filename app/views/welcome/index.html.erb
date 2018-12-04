@@ -4,23 +4,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<div id = "contacto">
-  <p> <%= @direccion %></p>
-  <p> <%= @fono %> </p>
-</div>
-
-<div class = "container">
-  <div id = "titulo" class = "page-header">
-    <h1>Hostal My House<h1>
+<body>
+  <div id = "fondo">
+  <div id = "contacto">
+    <p> <%= @direccion %></p>
+    <p> Reservas o consultas al<%= @fono %> </p>
   </div>
-</div>
-
-
-
-
-
-<div id = "mySidenav" class = "sidenav">
-  <a href= <%= @nosotros %> id= "info">Nosotros</a>
-  <a href= <%= @face %> id="Face">Facebook</a>
-  <a href= <%= @booking %> id="booking">Booking</a>
-</div>
+  <div id = "titulo">
+    <h1>Hostal My House</h1>
+  </div>
+  <div id = "mySidenav" class = "sidenav">
+    <a href= <%= @instagram %> id= "instagram">Instagram</a>
+    <a href= <%= @face %> id="Face">Facebook</a>
+    <a href= <%= @booking %> id="booking">Booking</a>
+  </div>
+</body>
