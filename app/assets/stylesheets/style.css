@@ -19,7 +19,7 @@ a,a:visited{
     text-decoration-line: none;
 }
 .no-margin{
-    margin: 0px;
+    margin: 1px;
 }
 #logo{
     font-size: 1.6em;

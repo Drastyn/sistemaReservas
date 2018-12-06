@@ -4,63 +4,103 @@
 
 
 #fondo{
-  background-image: url(https://scontent-scl1-1.cdninstagram.com/vp/29c20b732b201512e73dd1330ac2c848/5CA80409/t51.2885-15/e35/26184780_309692612871024_6506659231901417472_n.jpg?_nc_ht=scontent-scl1-1.cdninstagram.com);
+  background-image: url(https://instagram.fscl14-1.fna.fbcdn.net/vp/37b144dba1112b77a60ef2452ac4d81c/5C973032/t51.2885-15/e35/30846820_197342740877100_2096473605620629504_n.jpg);
   background-repeat: no-repeat;
-  background-position: 50% 50%;
   background-size: cover;
+  overflow-x: hidden;//oculta scrollbar horizontal
 }
 
-#contacto p{
-  padding: -15px;
-  margin: 0px 0;
-  margin-left: 5px;
-  font-family: 'Chalinka';
-  font-style: italic;
-  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
-  -webkit-text-fill-color: #FFFFFF;
-  -webkit-text-stroke: 0px black;
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-#titulo{
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
   text-align: center;
-  font-family: 'Chalinka';
-  font-style: italic;
-  padding: -40px;
-  font-size: 40px;
-  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
-  -webkit-text-fill-color: #cc0000;
-  -webkit-text-stroke: 2px black;
-  margin: -100px;
 }
 
-#mySidenav a{
-    position: absolute;
-    font-family: 'Chalinka';
-    left: -110px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 130px;
-    text-decoration: none;
-    font-size: 20px;
-    border-radius: 0 15px 5px 0;
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
 }
 
-
-#mySidenav a:hover{
-    left: 0;
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-#instagram{
-    top: 100px;
-    background-color: #c32aa3;
+.active, .dot:hover {
+  background-color: #717171;
 }
 
-#Face {
-    top: 160px;
-    background-color: #3b5998;
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-#booking {
-    top: 220px;
-    background-color: #003580;
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }

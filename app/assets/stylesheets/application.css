@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+#contacto p{
+    padding: -15px;
+    margin: 0px 0;
+    margin-left:   15px;
+    font-family: 'Chalinka';
+    font-style: italic;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+    -webkit-text-fill-color: #FFFFFF;
+    -webkit-text-stroke: 0px black;
+}
+#mySidenav a{
+      position: absolute;
+      font-family: 'Chalinka';
+      left: -120px;
+      transition: 0.3s;
+      padding: 15px;
+      width: 130px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover{
+     left: 0;
+}
+
+#instagram{
+     top: 160px;
+     background-color: #c32aa3;
+}
+
+#Face{
+     top: 230px;
+     background-color: #3b5998;
+}
+
+#booking{
+     top: 300px;
+     background-color: #003580;
+}
