@@ -6,4 +6,7 @@ class WelcomeController < ApplicationController
     @direccion = 'Bellavista 115, 2580067 Viña del Mar, Chile'
     @fono = ' +569 6539 9542'
   end
+  def login
+    index #llama a mismas variables de index.
+  end
 end
