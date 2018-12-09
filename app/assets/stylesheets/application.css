@@ -26,8 +26,10 @@
     -webkit-text-fill-color: #FFFFFF;
     -webkit-text-stroke: 0px black;
 }
+
 #mySidenav a{
       position: absolute;
+      z-index: 1;//deja los botones por sobre las imagenes 
       font-family: 'Chalinka';
       left: -120px;
       transition: 0.3s;
