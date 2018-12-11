@@ -1,8 +1,25 @@
-<body id = "fondo">
-  <div id = "titulo">
-    <h1>Habitaciones</h1>
+<% @habitacion.each do |habitacion|%>
+  <h1><%= habitacion.id %></h1>
+  <div>
+    <%= habitacion.descripcionHabitacion %>
   </div>
-  <!-- The four columns -->
+  <div>
+    <%= habitacion.numeroPersonas %>
+  </div>
+  <div>
+    <%= habitacion.tipoHabitacion %>
+  </div>
+  <div>
+    <%= habitacion.estadoHabitacion %>
+  </div>
+<%end%>
+
+
+<!-- <body>
+<div id = "titulo">
+  <h1>Habitaciones</h1>
+</div>
+ The four columns
 <div class="row">
   <div class="column">
     <img src="https://q-ec.bstatic.com/images/hotel/max500/124/124621905.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
@@ -38,3 +55,4 @@
   <div id="imgtext"></div>
 </div>
 </body>
+-->

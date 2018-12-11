@@ -1,0 +1,2 @@
+module HabitacionHelper
+end
