@@ -1,0 +1,24 @@
+<% @cliente.each do |cliente|%>
+  <h1><%= cliente.id %></h1>
+  <div>
+    <%= cliente.rutCliente %>
+  </div>
+  <div>
+    <%= cliente.nombresCliente %>
+  </div>
+  <div>
+    <%= cliente.emailCliente %>
+  </div>
+  <div>
+    <%= cliente.fechaNacimiento %>
+  </div>
+  <div>
+    <%= cliente.nickName %>
+  </div>
+  <div>
+    <%= cliente.contraseñaCliente %>
+  </div>
+  <div>
+    <%= cliente.direccionCliente %>
+  </div>
+<%end%>

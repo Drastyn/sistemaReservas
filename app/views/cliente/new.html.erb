@@ -1,0 +1,29 @@
+<div style="width: 80%;margin: 0 auto;">
+  <h1>Crear Cliente</h1>
+  <%= form_for @cliente, url: new_cliente_path(@cliente) do |f|%>
+    <div class="field">
+      <%= f.text_field :rutCliente, placeholder: "Ingrese rut", class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :nombresCliente, placeholder: "Ingrese nombre completo" , class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :emailCliente, placeholder: "Ingrese email", class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :fechaNacimiento, placeholder: "Ingrese fecha de nacimiento ", class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :nickName, placeholder: "Ingrese Apodo ", class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :contraseñaCliente, placeholder: "Ingrese contraseña ", class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :direccionCliente, placeholder: "Ingrese direccion ", class:"form-control" %>
+    </div>
+    <div class = "field">
+      <%= f.submit "Guardar", class:"btn be-red white" %>
+    </div>
+  <%end%>
+</div>

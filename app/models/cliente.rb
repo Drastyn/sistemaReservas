@@ -1,15 +1,24 @@
 class Cliente < ApplicationRecord
   has_many :reserva
 
-  VALID_RUT_REGEX = /\A(\d{1,3})\.(\d{1,3})\.(\d{1,3})\-(k|\d{1})\Z/i
-  validates :rutCliente, rut: {message: "rut invalido"}, uniqueness: {message: "rut ya registrado"}, presence: {message:"el campo esta en blanco"}, format: {with: VALID_RUT_REGEX, message:"formato invalido"}
+  validates :nombresCliente,  presence:{ message: "debe ingresar un nombre"}
+  validates :nombresCliente, length: { minimum: 2, message: "Debe tener a lo menos 2 letras el nombre." }
 
-  VALID_NAME_REGEX = /(?=^.{2,50}$)[a-zA-ZñÑáéíóúÁÉÍÓÚ]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+)?/
-  validates :nombresCliente, length: {in: 2..40, :messagge => "el nombre es demasiado largo"}, format: {with: VALID_NAME_REGEX, :message => "formato no valido"}, prescence: { message: "el campo esta en blanco"}
+  validates :nombresCliente, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: "solo puede contener letras." }
 
-   VALID_EMAIL_REGEX = /[a-z0-9]+[_a-z0-9.-][a-z0-9]+@[a-z0-9-]+(.[a-z0-9-]+)(.[a-z]{2,4})/
-   validates :emailCliente, format: {with: VALID_EMAIL_REGEX, message: "correo invalido"}, confirmation: {case_sensitive: false}, uniqueness: {message: "correo ya registrado"}, length: {in: 7..254, :message => "el correo debe tener entre 7 y 254 caracteres"}, presence: {message: "el campo esta en blanco"}
-   validates :nickName, length: {in: 7..20, message: "su nombre de usuario debe tener de 7 a 20 caracteres"}, uniqueness: {message: "el nombre de usuario ya existe"}, presence: {message: "campo en blanco"}
-   validates :contraseñaCliente, length: {in: 7..40, message: "recomendamos una contraseña mayor a 7 caracteres"}, presence: {message: "el campo esta en blanco"}
-   validates :direccionCliente, length: {in: 10..254, message: "la dirección debe tener entre 10 y 254 caracteres"}, presence: {message: "el campo esta en blanco"}
+
+  validates :fechaNacimiento, presence:{ message: "debe ingresar una fecha de nacimiento"}
+  validate :fecha_de_nacimiento_debe_ser_en_pasado
+
+  validates :direccionCliente, presence:{ message: "debe ingresar una direccion"},length: { minimum: 3, message: "la direccion es muy corta."}
+
+  validates :emailCliente, presence:{ message: "debe ingresar un mail"},uniqueness: { message: "este mail ya esta en uso."},  format: { with: URI::MailTo::EMAIL_REGEXP , message: "formato no valido (ejemplo@ejemplo.com)"}
+
+  validates :contraseñaCliente, presence:{ message: "debe ingresar una contraseña"},confirmation: true,length: { minimum: 3, message: "la contraseña es muy corta."}
+
+  def fecha_de_nacimiento_debe_ser_en_pasado
+    if fecha_nacimiento.present? && fechaNacimiento >= Date.today
+      errors.add(:fechaNacimiento, "debe ser anterior a la fecha de hoy")
+    end
+  end
 end
