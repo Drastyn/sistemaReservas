@@ -1,6 +1,6 @@
 <div style="width: 80%;margin: 0 auto;">
   <h1>Crear Cliente</h1>
-  <%= form_for @cliente, url: new_cliente_path(@cliente) do |f|%>
+  <%= form_for @clientes do |f|%>
     <div class="field">
       <%= f.text_field :rutCliente, placeholder: "Ingrese rut", class:"form-control" %>
     </div>

@@ -1,6 +1,6 @@
 <div style="width: 80%;margin: 0 auto;">
   <h1>Crear tarifa</h1>
-  <%= form_for @tarifa, url: new_tarifa_path(@tarifa) do |f|%>
+  <%= form_for @tarifas do |f|%>
     <div class="field">
       <%= f.text_field :preciotarifa, placeholder: "Ingrese Tarifa", class:"form-control" %>
     </div>

@@ -1,6 +1,6 @@
 <div style="width: 80%;margin: 0 auto;">
   <h1>Crear Habitación</h1>
-  <%= form_for @habitacion, url: new_habitacion_path(@habitacion) do |f|%>
+  <%= form_for @habitacions do |f|%>
     <div class="field">
       <%= f.text_field :descripcionHabitacion, placeholder: "Descripción de la Habitación", class:"form-control" %>
     </div>
