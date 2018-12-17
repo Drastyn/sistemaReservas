@@ -1,3 +1,6 @@
+#MODELO DESECHADO -> REEMPLAZADO POR USER (CREADO CON DEVISE)
+
+=begin
 class Cliente < ApplicationRecord
   has_many :reserva
 
@@ -22,3 +25,4 @@ class Cliente < ApplicationRecord
     end
   end
 end
+=end

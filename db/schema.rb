@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_231235) do
+ActiveRecord::Schema.define(version: 2018_12_17_223106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,18 +21,6 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.string "rutAdministrador"
     t.string "claveAnterior"
     t.string "claveActual"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "clientes", force: :cascade do |t|
-    t.string "rutCliente"
-    t.string "nombresCliente"
-    t.string "emailCliente"
-    t.datetime "fechaNacimiento"
-    t.string "nickName"
-    t.string "contraseñaCliente"
-    t.string "direccionCliente"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,12 +46,10 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.integer "precioReserva"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "clientes_id"
-    t.integer "cliente_id"
-    t.integer "habitacion_id"
     t.bigint "habitacions_id"
-    t.index ["clientes_id"], name: "index_reservas_on_clientes_id"
+    t.bigint "users_id"
     t.index ["habitacions_id"], name: "index_reservas_on_habitacions_id"
+    t.index ["users_id"], name: "index_reservas_on_users_id"
   end
 
   create_table "tarifas", force: :cascade do |t|
@@ -72,7 +58,25 @@ ActiveRecord::Schema.define(version: 2018_11_26_231235) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "nombres_apellidos"
+    t.string "nick_name"
+    t.string "direccion"
+    t.string "telefono"
+    t.date "fecha_nacimiento"
+    t.boolean "estado", default: true
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "habitacions", "tarifas", column: "tarifas_id"
-  add_foreign_key "reservas", "clientes", column: "clientes_id"
   add_foreign_key "reservas", "habitacions", column: "habitacions_id"
+  add_foreign_key "reservas", "users", column: "users_id"
 end

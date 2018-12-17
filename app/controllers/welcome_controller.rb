@@ -3,6 +3,6 @@ class WelcomeController < ApplicationController
     datos
   end
   def login
-    datos #llama a mismas variables de index.
+    datos 
   end
 end

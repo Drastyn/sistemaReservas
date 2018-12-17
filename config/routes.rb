@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'welcome#index'
   get  'welcome/login'
 
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
 =end
   resources :tarifas
   resources :habitacions
-  resources :clientes
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

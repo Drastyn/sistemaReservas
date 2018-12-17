@@ -36,11 +36,13 @@
           <li class="col-md">
             <%= link_to "Habitaciones", habitacions_path%>
           </li>
+          <!--
           <li class="col-md">
             Reservas
           </li>
+          -->
           <li class="col-md">
-            <%= link_to "Iniciar sesion", welcome_login_path%>
+            <%= link_to "Iniciar sesion", new_user_session_path%>
           </li>
         </ul>
       </nav>
@@ -50,6 +52,13 @@
       <a href= <%= @face %> id="Face">Facebook</a>
       <a href= <%= @booking %> id="booking">Booking</a>
     </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if current_user %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,3 +1,5 @@
+#CONTROLADOR DESECHADO -> REEMPLAZADO POR USUER (CREADO CON DEVISE)
+=begin
 class ClientesController < ApplicationController
   #GET /clientes
   def index
@@ -42,3 +44,4 @@ class ClientesController < ApplicationController
   end
 
 end
+=end
