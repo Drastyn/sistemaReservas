@@ -1,1 +1,10 @@
 <body id = "fondo">
+  <% if user_signed_in? %>
+  <font color = "black">
+    <p align = "right"><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></p>
+  </font>
+  <font color = "white">
+    <h1 align = "center">Bienvenido <%= current_user.nick_name %></h1>
+  </font>
+  <%end%>
+</body>

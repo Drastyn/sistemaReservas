@@ -3,6 +3,6 @@ class WelcomeController < ApplicationController
     datos
   end
   def login
-    datos 
+    datos
   end
 end
