@@ -1,7 +1,13 @@
 <body id = "fondo">
-  <% if user_signed_in? %>
-  <font color = "white">
-    <h1 align = "center">Bienvenid@ <%= current_user.nick_name %></h1>
-  </font>
+  <% if user_signed_in? && current_user.admin? %>
+    <font color = "white">
+      <h1 align = "center"> Administrador <%= current_user.nick_name %></h1>
+    </font>
   <%end%>
+  <% if user_signed_in? && current_user.user? %>
+    <font color = "white">
+      <h1 align = "center">Bienvenid@ <%= current_user.nick_name %></h1>
+    </font>
+  <%end%>
+
 </body>

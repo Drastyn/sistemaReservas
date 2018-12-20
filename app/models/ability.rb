@@ -6,11 +6,11 @@ class Ability
     #
 
     user ||= User.new # guest user (not logged in)
-    if user.role == "cliente"
+    if user.user_role == "user"
       can :read, :attention
       can :manage, User, id: user.id
     end
-    if user.role == "administradors"
+    if user.user_role == "admin"
       can :manage, :all
 
     end

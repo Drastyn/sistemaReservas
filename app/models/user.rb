@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :reservas
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,5 +18,5 @@ class User < ApplicationRecord
   validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: "solo puede contener letras" }
   validates :nombres_apellidos, length: {in: 20..50, message: ": ingrese su nombre completo por favor"}
 
-  enum user_role: { user: 0, admin: 1}
+
 end

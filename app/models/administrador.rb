@@ -1,2 +1,3 @@
-class Administrador < ApplicationRecord
-end
+#MODELO DESECHADO
+#class Administrador < ApplicationRecord
+#end
