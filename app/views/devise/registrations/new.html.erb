@@ -1,8 +1,10 @@
 <body id = "fondo_registro">
+  <div id = "errores_registro">
+  <%= devise_error_messages! %>
+  </div>
   <div id = "contener_registro">
   <FONT SIZE = 7>REGISTRO</FONT>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
   <FONT SIZE = 4>
     <div class = "field">
       <%= f.label :nombres_apellidos, "NOMBRES Y APELLIDOS"%><br />
@@ -13,7 +15,7 @@
 
     <div class = "field">
       <%= f.label :fecha_nacimiento,"FECHA DE NACIMIENTO (DEBES SER MAYOR DE 18 AÑOS)" %><br />
-      <%= f.date_select :fecha_nacimiento, :order => [:day, :month, :year],:start_year => Time.now.year - 18,:end_year => 1920 %><br />
+      <%= f.date_select :fecha_nacimiento,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year - 18,:end_year => 1920 %><br />
 
     <div class = "field">
       <%= f.label :direccion,"DIRECCIÓN" %><br />
