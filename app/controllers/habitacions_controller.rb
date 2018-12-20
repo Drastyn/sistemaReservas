@@ -1,18 +1,15 @@
 class HabitacionsController < ApplicationController
   #GET /habitacions
   def index
-    datos
     @habitacions = Habitacion.all
   end
   #GET /habitacions/:id
   def show
-    datos
     @habitacions = Habitacion.find(params[:id])
   end
 
   #GET /habitacion
   def new
-    datos
     @habitacions = Habitacion.new
   end
   #POST /habitacion

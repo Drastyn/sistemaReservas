@@ -1,0 +1,35 @@
+// Place all the styles related to the registrations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hide-scroll{
+  overflow: hidden;
+}
+
+#contener_inicio_sesion {
+  margin-left: -120px;
+  padding: 350px;
+  position: center;
+  text-shadow: -1px -1px 1px #FFF, 1px 1px 1px #FFF, -1px 1px 1px #FFF, 1px -1px 1px #FFF;
+  -webkit-text-fill-color: #000000;
+  -webkit-text-stroke: 0px white;
+}
+
+#contener_registro {
+  font: oblique bold 120% cursive;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  text-shadow: -1px -1px 1px #FFF, 1px 1px 1px #FFF, -1px 1px 1px #FFF, 1px -1px 1px #FFF;
+  -webkit-text-fill-color: #000000;
+  -webkit-text-stroke: 0px white;
+  //position: center;
+}
+
+#fondo_registro{
+  background-image: url(https://instagram.fscl14-1.fna.fbcdn.net/vp/cef7067acf79f219f1083cc8f3715fa6/5CB7FF8B/t51.2885-15/e35/18723335_144706299406617_7568598356922990592_n.jpg?_nc_ht=instagram.fscl14-1.fna.fbcdn.net);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;//oculta scrollbar horizontal
+}

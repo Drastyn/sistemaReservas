@@ -26,8 +26,8 @@
          <li class="col-md">
             <h1 class="no-margin" id="logo"> Hostal My House</h1>
             <div id = "contacto">
-              <p> <%= @direccion %></p>
-              <p> Reservas o consultas al<%= @fono %> </p>
+              <p> Bellavista 115, 2580067 Viña del Mar, Chile </p>
+              <p> Reservas o consultas al +569 6539 9542</p>
             </div>
          </li>
           <li class="col-md">
@@ -48,13 +48,14 @@
       </nav>
     </header>
     <div id = "mySidenav" class = "sidenav white">
-      <a href= <%= @instagram %> id="instagram">Instagram</a>
-      <a href= <%= @face %> id="Face">Facebook</a>
-      <a href= <%= @booking %> id="booking">Booking</a>
+      <a class = "instagram" href= "https://www.instagram.com/hostalmyhouse/"">Instagram</a>
+      <a class="Face" href= "https://www.facebook.com/hostelmyhouse/">Facebook</a>
+      <a class="booking" href= "https://www.booking.com/hotel/cl/my-house-hostel.es.html">Booking</a>
     </div>
-
+    <!--
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <!--
     <% if current_user %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>

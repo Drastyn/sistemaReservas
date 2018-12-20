@@ -29,7 +29,7 @@
 
 #mySidenav a{
       position: absolute;
-      z-index: 1;//deja los botones por sobre las imagenes 
+      z-index: 1;//deja los botones por sobre las imagenes
       font-family: 'Chalinka';
       left: -120px;
       transition: 0.3s;
@@ -45,17 +45,17 @@
      left: 0;
 }
 
-#instagram{
+.instagram{
      top: 160px;
      background-color: #c32aa3;
 }
 
-#Face{
+.Face{
      top: 230px;
      background-color: #3b5998;
 }
 
-#booking{
+.booking{
      top: 300px;
      background-color: #003580;
 }
