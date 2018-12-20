@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_223106) do
+ActiveRecord::Schema.define(version: 2018_12_20_170345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "administradors", force: :cascade do |t|
-    t.string "nombreAdministrador"
-    t.string "apellidosAdministrador"
-    t.string "rutAdministrador"
-    t.string "claveAnterior"
-    t.string "claveActual"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "habitacions", force: :cascade do |t|
     t.text "descripcionHabitacion"
@@ -72,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_223106) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
