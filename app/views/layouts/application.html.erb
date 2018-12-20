@@ -41,9 +41,15 @@
             Reservas
           </li>
           -->
+          <% if user_signed_in? %>
+          <li class = "col-md">
+            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
           <li class="col-md">
             <%= link_to "Iniciar sesion", new_user_session_path%>
           </li>
+          <%end%>
         </ul>
       </nav>
     </header>
@@ -52,10 +58,6 @@
       <a class="Face" href= "https://www.facebook.com/hostelmyhouse/">Facebook</a>
       <a class="booking" href= "https://www.booking.com/hotel/cl/my-house-hostel.es.html">Booking</a>
     </div>
-    <% if current_user %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% end %>
-    -->
     <%= yield %>
   </body>
 </html>
