@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password)}
   end
+  #permite acceso solo a los administradores
+  def authenticate_admin!
+    unless current_user.present? && current_user.admin?
+      redirect_to root_path
+    end
+  end
 end

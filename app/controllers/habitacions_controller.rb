@@ -1,4 +1,6 @@
 class HabitacionsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index]#solo el administrador puede crear una habitacion (los usuarios comunes
+  #ven solo ven las habitaciones disponibles)
   #GET /habitacions
   def index
     @habitacions = Habitacion.all
