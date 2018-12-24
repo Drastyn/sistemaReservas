@@ -1,17 +1,28 @@
 <% @habitacions.each do |habitacion|%>
-  <h1><%= habitacion.id %></h1>
-  <div>
-    <%= habitacion.descripcionHabitacion %>
-  </div>
-  <div>
-    <%= habitacion.numeroPersonas %>
-  </div>
-  <div>
-    <%= habitacion.tipoHabitacion %>
-  </div>
-  <div>
-    <%= habitacion.estadoHabitacion %>
-  </div>
+  <!-- se muestran solo las habitaciones disponibles -->
+  <%if habitacion.disponible? %>
+    <h1><%= habitacion.id %></h1>
+    <div>
+      <%= "Descripción de la habitacion: " %>
+      <%= habitacion.descripcionHabitacion %>
+    </div>
+    <div>
+      <%= "Cantidad de personas: " %>
+      <%= habitacion.numeroPersonas %>
+    </div>
+    <div>
+      <%= "Tipo de habitación: " %>
+      <%= habitacion.tipoHabitacion %>
+    </div>
+    <div>
+      <%= "La habitación esta " %>
+      <%= habitacion.estado_habitacion%>
+    </div>
+    <div>
+      <%= "Tarifa de la habitación: $" %>
+      <%= habitacion.tarifa_habitacion%>
+    </div>
+    <%end%>
 <%end%>
 
 

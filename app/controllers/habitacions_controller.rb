@@ -19,7 +19,8 @@ class HabitacionsController < ApplicationController
     @habitacions = Habitacion.new(descripcionHabitacion: params[:habitacion][:descripcionHabitacion],
                                         numeroPersonas: params[:habitacion][:numeroPersonas],
                                         tipoHabitacion: params[:habitacion][:tipoHabitacion],
-                                        estadoHabitacion: params[:habitacion][:estadoHabitacion])
+                                        tarifa_habitacion: params[:habitacion][:tarifa_habitacion])
+                                        #estadoHabitacion: params[:habitacion][:estadoHabitacion])
     @habitacions.save
     redirect_to @habitacions
   end

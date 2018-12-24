@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_20_170345) do
+ActiveRecord::Schema.define(version: 2018_12_24_200842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,10 @@ ActiveRecord::Schema.define(version: 2018_12_20_170345) do
     t.text "descripcionHabitacion"
     t.integer "numeroPersonas"
     t.string "tipoHabitacion"
-    t.boolean "estadoHabitacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "tarifas_id"
-    t.integer "tarifa_id"
-    t.index ["tarifas_id"], name: "index_habitacions_on_tarifas_id"
+    t.integer "estado_habitacion", default: 0
+    t.integer "tarifa_habitacion", default: 10000
   end
 
   create_table "reservas", force: :cascade do |t|
@@ -40,12 +38,6 @@ ActiveRecord::Schema.define(version: 2018_12_20_170345) do
     t.bigint "users_id"
     t.index ["habitacions_id"], name: "index_reservas_on_habitacions_id"
     t.index ["users_id"], name: "index_reservas_on_users_id"
-  end
-
-  create_table "tarifas", force: :cascade do |t|
-    t.integer "preciotarifa"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,7 +59,6 @@ ActiveRecord::Schema.define(version: 2018_12_20_170345) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "habitacions", "tarifas", column: "tarifas_id"
   add_foreign_key "reservas", "habitacions", column: "habitacions_id"
   add_foreign_key "reservas", "users", column: "users_id"
 end
