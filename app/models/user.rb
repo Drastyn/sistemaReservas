@@ -6,15 +6,34 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :email, presence: {message: " no puede estar en blanco"}
-  validates :direccion, presence: {message: " no puede estar en blanco"}
-  validates :nick_name, presence: {message: " no puede estar en blacno"}
-  validates :nick_name, uniqueness: {message: " ya esta registrado"}
-  validates :telefono, presence: {message: " no puede estar en blanco"}
+  validates :email, presence: {message: " No puede estar en blanco"}
+  validates :direccion, presence: {message: " No puede estar en blanco"}
+  validates :nick_name, presence: {message: " No puede estar en blacno"}
+  validates :nick_name, uniqueness: {message: " Ya esta registrado"}
+  validates :telefono, presence: {message: " No puede estar en blanco"}
   validates :telefono, numericality: {only_integer: true,message: " solo debe contener numeros"}
-  validates :telefono, uniqueness: {message: "ya esta registrado"}
-  validates :telefono, length:{is: 8, message: "invalido"}
+  validates :telefono, uniqueness: {message: " Ya esta registrado"}
+  validates :telefono, length:{is: 8, message: " Invalido"}
   validates :nombres_apellidos, presence: {message: "no puede estar en blanco"}
-  validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: "solo puede contener letras" }
-  validates :nombres_apellidos, length: {in: 20..50, message: ": ingrese su nombre completo por favor"}
+  validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: " Solo puede contener letras" }
+  validates :nombres_apellidos, length: {in: 20..50, message: " Ingrese su nombre completo por favor"}
+  validate  :validar_dia_hoy, :mayor_de_edad
+
+
+  #valida el dia de hoy
+  def validar_dia_hoy
+    dia_de_hoy = Time.now.day
+    if fecha_nacimiento.day > dia_de_hoy
+      errors.add(:fecha_nacimiento, "Incorrecta, aun no tienes 18 años")
+    end
+  end
+
+  #verifica que el usuario que se registra sea mayor de 18 años
+  #si se desea usar esta validacion en registrations quitar - 18 de Time.now.year en el formulario de registro
+  def mayor_de_edad
+    edad = Date.today.year - fecha_nacimiento.year
+    if edad < 18
+      errors.add(:fecha_nacimiento,"Debes ser mayor de 18 años.")
+    end
+  end
 end
