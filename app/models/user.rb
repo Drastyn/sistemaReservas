@@ -17,6 +17,4 @@ class User < ApplicationRecord
   validates :nombres_apellidos, presence: {message: "no puede estar en blanco"}
   validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: "solo puede contener letras" }
   validates :nombres_apellidos, length: {in: 20..50, message: ": ingrese su nombre completo por favor"}
-
-
 end
