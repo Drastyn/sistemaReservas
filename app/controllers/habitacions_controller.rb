@@ -21,8 +21,12 @@ class HabitacionsController < ApplicationController
                                         tipoHabitacion: params[:habitacion][:tipoHabitacion],
                                         tarifa_habitacion: params[:habitacion][:tarifa_habitacion])
                                         #estadoHabitacion: params[:habitacion][:estadoHabitacion])
-    @habitacions.save
-    redirect_to @habitacions
+    #validacion correcta de la creacion de la habitacion
+    if @habitacions.save
+      redirect_to :action => :index
+    else
+      render 'new'
+    end
   end
 
   def destroy

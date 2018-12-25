@@ -1,6 +1,17 @@
 <div style="width: 80%;margin: 0 auto;">
   <h1>Crear Habitación</h1>
   <%= form_for @habitacions do |f|%>
+    <% if @habitacions.errors.any? %>
+      <div id = "errores_creacion_habitacion" >
+        <%= pluralize(@habitacions.errors.count, "Errores") %>
+        <ul>
+        <% @habitacions.errors.full_messages.each do |error| %>
+            <li ><%= error %> </li>
+        <%end%>
+        </ul>
+      </div>
+    <%end%>
+
     <div class="field">
       <%= f.text_field :descripcionHabitacion, placeholder: "Descripción de la Habitación", class:"form-control" %>
     </div>
