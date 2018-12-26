@@ -1,5 +1,5 @@
 class Reserva < ApplicationRecord
-  belongs_to :cliente
+  belongs_to :user
 
   validates :fechaIngreso_no_debe_ser_pasada_
   validates :fechaSalida_no_debe_ser_pasada_, :fechaSalida_entre

@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <% @usuario = current_user %>
+  <% @usuario.estado_user = 1 %>
+  <% @usuario.save %>
+  <%link_to "Darme de baja", :method => dar_de_baja %>
+<%end%>

@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   patch "/habitacion/:id" update
   put "/habitacion/:id" update
 =end
-  resources :tarifas
+  resources :users
+  resources :delete
   resources :habitacions
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,4 +1,6 @@
 class TarifasController < ApplicationController
+end
+=begin
   #GET /tarifa
   def index
     datos
@@ -36,3 +38,4 @@ class TarifasController < ApplicationController
   end
 
 end
+=end

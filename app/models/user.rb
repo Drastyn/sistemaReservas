@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates :nombres_apellidos, length: {in: 20..50, message: " Ingrese su nombre completo por favor"}
   validate  :validar_dia_hoy, :mayor_de_edad
 
-
   #valida el dia de hoy
   def validar_dia_hoy
     dia_de_hoy = Time.now.day
