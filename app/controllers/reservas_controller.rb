@@ -20,8 +20,11 @@ class ReservasController < ApplicationController
                             cantidadHabitaciones: params[:reserva][:cantidadHabitaciones],
                             estadoReserva: params[:reserva][:estadoReserva],
                             precioReserva: params[:reserva][:precioReserva])
-    @reservas.save
-    redirect_to @reservas
+    if @reservas.save
+      redirect_to @reservas
+    else
+      render :new
+    end
   end
 
   def destroy

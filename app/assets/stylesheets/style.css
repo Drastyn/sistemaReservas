@@ -55,3 +55,12 @@ ul {
     position: relative;
     background-size: cover;
 }
+.form-control-cant {
+    border: none;
+    border-bottom: 1px;
+    outline: none;
+    width: 6%;
+    display: block;
+    padding: 10px 0px;
+    font-size: 1.2em;
+}

@@ -3,6 +3,8 @@ class Reserva < ApplicationRecord
 
   validate :fechaIngreso_no_debe_ser_pasada_
   validate :fechaSalida_no_debe_ser_pasada_, :fechaSalida_entre
+  validate :fechaIngreso
+  validate :fechaSalida
   validates :cantidadPersonas, numericality: {only_integer: true, message: "Favor ingrese la cantidad de personas para hacer la reserva"}, presence: {message: "campo en blanco"}
   validates :cantidadHabitaciones, numericality: {only_integer: true, message: "Favor ingrese la cantidad de habitacion para hacer la reserva"}, presence: {message: "campo en blanco"}
   validates :estadoReserva, length: {in: 7..50, message: "Favor ingrese estado"}, presence: {message: "campo en blanco"}
