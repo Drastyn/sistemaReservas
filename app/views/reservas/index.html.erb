@@ -1,0 +1,21 @@
+<% @reservas.each do |reserva|%>
+  <h1><%= reserva.id %></h1>
+  <div>
+    <%= reserva.fechaIngreso %>
+  </div>
+  <div>
+    <%= reserva.fechaSalida %>
+  </div>
+  <div>
+    <%= reserva.cantidadPersonas %>
+  </div>
+  <div>
+    <%= reserva.cantidadHabitaciones %>
+  </div>
+  <div>
+    <%= reserva.estadoReserva %>
+  </div>
+  <div>
+    <%= reserva.precioReserva %>
+  </div>
+<%end%>
