@@ -1,17 +1,19 @@
-<body id = "fondo">
-  <% if user_signed_in? && current_user.inactivo? %>
+<body id = "fondo_welcome">
+  <div id = "letras_bienvenida">
+    <% if user_signed_in? && current_user.inactivo? %>
       <h1 align = "center" >Tu cuenta esta bloqueada <%= current_user.nick_name %></h1>
-  <%end%>
-  <% if user_signed_in? && current_user.activo? %>
-    <% if user_signed_in? && current_user.admin? %>
-      <font color = "white">
-        <h1 align = "center"> Administrador <%= current_user.nick_name %></h1>
-      </font>
-      <%end%>
-    <% if user_signed_in? && current_user.user? %>
-      <font color = "white">
-        <h1 align = "center">Bienvenid@ <%= current_user.nick_name %></h1>
-      </font>
     <%end%>
-  <%end%>
+    <% if user_signed_in? && current_user.activo? %>
+      <% if user_signed_in? && current_user.admin? %>
+        <font color = "white">
+          <h1 align = "center">Bienvenid@ Administrador <%= current_user.nick_name %></h1>
+        </font>
+      <%end%>
+      <% if user_signed_in? && current_user.user? %>
+        <font color = "white">
+          <h1 align = "center">Bienvenid@ <%= current_user.nick_name %></h1>
+        </font>
+      <%end%>
+    <%end%>
+  </div>
 </body>

@@ -50,10 +50,19 @@ body {
 
 /* The expanding image container */
 
-#containerImagen {
-    position: relative;
-    display: none;
+#fondo_habitaciones{
+  //falta agregar imagen de fondo
+  overflow-x: hidden;//oculta scrollbar horizontal
 }
+
+
+#contener_habitaciones{
+  padding: 50px;
+  position: center;
+  margin-left: 100px;
+}
+
+
 
 /* Expanding image text */
 #imgtext {
@@ -78,4 +87,11 @@ body {
   text-align: center;
   color: red;
   border: 1px solid;
+}
+
+#boton_reservar{
+  margin-top: -190px;
+  margin-left: 450px;
+  background-color: white;
+  border: 2px solid #4CAF50; /* Green */
 }

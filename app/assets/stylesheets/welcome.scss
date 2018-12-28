@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#fondo{
+#fondo_welcome{
   background-image: url(https://instagram.fscl14-1.fna.fbcdn.net/vp/37b144dba1112b77a60ef2452ac4d81c/5C973032/t51.2885-15/e35/30846820_197342740877100_2096473605620629504_n.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -103,6 +103,16 @@
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+#letras_bienvenida {
+  color: white;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  text-shadow: -1px -1px 1px #FFF, 1px 1px 1px #FFF, -1px 1px 1px #FFF, 1px -1px 1px #FFF;
+  -webkit-text-fill-color: #000000;
+  -webkit-text-stroke: 0px white;
 }
 
 //incio de sesion

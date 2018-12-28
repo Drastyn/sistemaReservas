@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def dar_de_baja
     sign_out_and_redirect(current_user)
   end
+
   protected
 
   def configure_permitted_parameters
@@ -15,7 +16,6 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password)}
   end
-
 
   #permite acceso solo a los administradores
   def authenticate_admin!
