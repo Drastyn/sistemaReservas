@@ -33,31 +33,25 @@
           <li class="col-md">
             <%= link_to "Inicio", root_path %>
           </li>
-          <% if user_signed_in? && current_user.admin? %>
           <li class="col-md">
-            <%= link_to "Habitaciones", new_habitacion_url %>
+              <%= link_to "Habitaciones", habitacions_url%>
           </li>
-          <%else%>
-          <li class="col-md">
-            <%= link_to "Habitaciones", habitacions_url%>
-          </li>
-          <%end%>
           <!--
           <li class="col-md">
             Reservas
           </li>
           -->
           <% if user_signed_in? %>
-          <li class = "col-md">
-            <%= link_to "Editar perfil", edit_user_registration_path %>
-          </li>
-          <li class = "col-md">
-            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
-          </li>
-          <% else %>
-          <li class="col-md">
-            <%= link_to "Iniciar sesion", new_user_session_path%>
-          </li>
+            <li class = "col-md">
+              <%= link_to "Editar perfil", edit_user_registration_path %>
+            </li>
+            <li class = "col-md">
+              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
+            </li>
+            <% else %>
+            <li class="col-md">
+              <%= link_to "Iniciar sesion", new_user_session_path%>
+            </li>
           <%end%>
         </ul>
       </nav>

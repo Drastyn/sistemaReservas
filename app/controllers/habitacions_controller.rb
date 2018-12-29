@@ -7,6 +7,7 @@ class HabitacionsController < ApplicationController
   end
   #GET /habitacions/:id
   def show
+    #Encuentra un registro por id
     @habitacions = Habitacion.find(params[:id])
   end
 
@@ -30,16 +31,26 @@ class HabitacionsController < ApplicationController
   end
 
   def destroy
-
+    @habitacions = Habitacion.find(params[:id])
+    @habitacions.destroy #elimina el objeto de la BD
+    redirect_to habitacions_path
   end
 
   #PUT /habitacion/:id
   def update
-
+    @habitacions = Habitacion.find(params[:id])
+    if @habitacions.update(descripcionHabitacion: params[:habitacion][:descripcionHabitacion],
+                           numeroPersonas: params[:habitacion][:numeroPersonas],
+                           tipoHabitacion: params[:habitacion][:tipoHabitacion],
+                           tarifa_habitacion: params[:habitacion][:tarifa_habitacion])
+    else
+      render :edit
+    end
   end
 
   def edit
-
+    @habitacions = Habitacion.find(params[:id])
   end
+
 
 end

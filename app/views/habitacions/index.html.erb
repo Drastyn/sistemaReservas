@@ -1,9 +1,14 @@
 <body id = "fondo_habitaciones">
   <div id = "contener_habitaciones">
     <!-- se muestran solo las habitaciones disponibles -->
+    <% if user_signed_in? && current_user.admin? %>
+      <div class="btn be-red white">
+        <%= link_to "Crear Habitacion", new_habitacion_path %>
+      </div>
+    <%end%>
     <% @habitacions.each do |habitacion|%>
       <%if habitacion.disponible? %>
-        <h1><%= habitacion.id %></h1>
+        <h1><%= link_to habitacion.id, habitacion %></h1>
         <div>
           <%= "Descripción de la habitacion: " %>
           <%= habitacion.descripcionHabitacion %>

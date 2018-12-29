@@ -1,32 +1,5 @@
 <body id = "fondo_habitaciones">
   <div style="width: 80%;margin: 0 auto;">
-    <h1>Crear Habitación</h1>
-    <%= form_for @habitacions do |f|%>
-      <% if @habitacions.errors.any? %>
-        <div id = "errores_creacion_habitacion" >
-          <%= pluralize(@habitacions.errors.count, "Errores") %>
-          <ul>
-            <% @habitacions.errors.full_messages.each do |error| %>
-              <li ><%= error %> </li>
-            <% end %>
-          </ul>
-        </div>
-     <% end %>
-     <div class="field">
-       <%= f.text_field :descripcionHabitacion, placeholder: "Descripción de la Habitación", class:"form-control" %>
-     </div>
-     <div class="field">
-       <%= f.text_field :numeroPersonas, placeholder: "Número de personas para la habitación" , class:"form-control" %>
-     </div>
-     <div class="field">
-       <%= f.text_field :tipoHabitacion, placeholder: "Tipo de habitación", class:"form-control" %>
-     </div>
-     <div class="field">
-       <%= f.text_field :tarifa_habitacion, placeholder: "Tarifa de la habitación", class:"form-control" %>
-     </div>
-     <div class = "field">
-       <%= f.submit "Guardar", class:"btn be-red white" %>
-     </div>
-    <% end %>
+    <%= render "form", name: "Crear" %>
   </div>
 </body>
