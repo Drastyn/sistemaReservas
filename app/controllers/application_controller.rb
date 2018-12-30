@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   helper_method :dar_de_baja
 
   def dar_de_baja
+    @usuario = current_user
+    @usuario.estado_user = 1
+    @usuario.save
     sign_out_and_redirect(current_user)
   end
 

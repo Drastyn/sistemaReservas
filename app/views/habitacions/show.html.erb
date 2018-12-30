@@ -1,24 +1,28 @@
-<% if user_signed_in? && current_user.admin? %>
-  <h1><%= @habitacions.id %></h1>
-  <div>
-    <%= @habitacions.descripcionHabitacion %>
+<body id = "fondo_habitaciones">
+  <div id = "contener_habitaciones">
+    <% if user_signed_in? && current_user.admin? %>
+    <h1><%= @habitacions.id %></h1>
+    <div>
+      <%= @habitacions.descripcionHabitacion %>
+    </div>
+    <div>
+      <%= @habitacions.numeroPersonas %>
+    </div>
+    <div>
+      <%= @habitacions.tipoHabitacion %>
+    </div>
+    <div>
+      <%= @habitacions.estado_habitacion%>
+    </div>
+    <div>
+      <%= @habitacions.tarifa_habitacion %>
+    </div>
+    <div class = "btn btn-info" id = "boton_guardado_error">
+      <%= link_to "Editar", edit_habitacion_path(@habitacions) %>
+    </div>
+    <div class = "btn btn-danger" id = "boton_guardado_error">
+      <%= link_to "Eliminar", {:action => :destroy, :id => @habitacions.id}, :method => :delete, data: { :confirm => "Esta seguro que deesea eliminar la habitacion"} %>
+    </div>
+  <%end%>
   </div>
-  <div>
-    <%= @habitacions.numeroPersonas %>
-  </div>
-  <div>
-    <%= @habitacions.tipoHabitacion %>
-  </div>
-  <div>
-    <%= @habitacions.estado_habitacion%>
-  </div>
-  <div>
-    <%= @habitacions.tarifa_habitacion %>
-  </div>
-  <div class = "btn btn-ligth" id = "boton_reservar">
-    <%= link_to "Editar", edit_habitacion_path(@habitacions) %>
-  </div>
-  <div class = "btn btn-ligth" id = "boton_reservar">
-    <%= link_to "Eliminar", {:action => :destroy, :id => @habitacions.id}, :method => :delete, data: { :confirm => "Esta seguro que deesea eliminar la habitacion"} %>
-  </div>
-<%end%>
+</body>

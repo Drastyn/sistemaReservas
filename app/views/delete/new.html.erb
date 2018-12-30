@@ -1,6 +1,7 @@
 <% if user_signed_in? && (current_user.user? || current_user.admin?)%>
-  <% @usuario = current_user %>
-  <% @usuario.estado_user = 1 %>
-  <% @usuario.save %>
   <%link_to "Darme de baja", :method => dar_de_baja %>
-<%end%>
+<% else %>
+  <!-- para no crear id error otra vez, uso el de habitación -->
+  <div id ="errores_creacion_habitacion">
+    <h1> WOOOOOOOPS!, NADA POR AQUÍ </h1>
+<% end %>
