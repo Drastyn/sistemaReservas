@@ -1,0 +1,40 @@
+<body id = "fondo_usuarios">
+  <div id = "contener_usuarios">
+    <% if user_signed_in? && current_user.admin? %>
+      <h1> USUARIOS </h1>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th> Nombres y Apellidos </th>
+            <th> Nombre de usuario </th>
+            <th> Fecha de nacimiento </th>
+            <th> Dirección </th>
+            <th> Teléfono </th>
+            <th> Email </th>
+            <th> Rol del usuario </th>
+            <th> Estado del usuario </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users = User.all %>
+          <% @users.each do |user| %>
+            <tr>
+              <td> <%= user.nombres_apellidos %> </td>
+              <td> <%= user.nick_name %> </td>
+              <td> <%= user.fecha_nacimiento %> </td>
+              <td> <%= user.direccion %> </td>
+              <td> +569 <%= user.telefono %> </td>
+              <td> <%= user.email %> </td>
+              <td> <%= user.user_role %> </td>
+              <td> <%= user.estado_user %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <!-- para no crear id error otra vez, uso el de habitación -->
+      <div id ="errores_creacion_habitacion">
+        <h1> WOOOOOOOPS!, NADA POR AQUÍ </h1>
+    <% end %>
+  </div>
+</body>

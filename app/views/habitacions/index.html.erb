@@ -5,12 +5,12 @@
       <div class="btn be-red white">
         <%= link_to "Crear Habitacion", new_habitacion_path %>
       </div>
-      <p> <!-- salto de linea --> </p> 
+      <p> <!-- salto de linea --> </p>
       <p>pulse el número de la habitación para editar o eliminar</p>
-    <%end%>
+    <% end %>
     <% @habitacions.each do |habitacion|%>
       <%if habitacion.disponible? %>
-        <% if current_user.admin? %>
+        <% if user_signed_in? && current_user.admin? %>
           <h1><%= link_to habitacion.id, habitacion %></h1>
         <% else %>
           <h1><%= habitacion.id %></h1>
