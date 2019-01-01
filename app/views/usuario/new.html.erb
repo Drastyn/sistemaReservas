@@ -5,6 +5,7 @@
       <table class = "table">
         <thead>
           <tr>
+            <th> ID </th>
             <th> Nombres y Apellidos </th>
             <th> Nombre de usuario </th>
             <th> Fecha de nacimiento </th>
@@ -19,6 +20,7 @@
           <% @users = User.all %>
           <% @users.each do |user| %>
             <tr>
+              <td> <%= user.id %> </td>
               <td> <%= user.nombres_apellidos %> </td>
               <td> <%= user.nick_name %> </td>
               <td> <%= user.fecha_nacimiento %> </td>
@@ -26,7 +28,7 @@
               <td> +569 <%= user.telefono %> </td>
               <td> <%= user.email %> </td>
               <td> <%= user.user_role %> </td>
-              <td> <%= user.estado_user %> </td>
+              <td> <%= user.estado_user %></td>
             </tr>
           <% end %>
         </tbody>

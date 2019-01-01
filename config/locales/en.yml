@@ -12,7 +12,7 @@
 #
 # To use a different locale, set it with `I18n.locale`:
 #
-#     I18n.locale = :es
+#    I18n.locale = :es
 #
 # This would use the information in config/locales/es.yml.
 #
@@ -42,3 +42,5 @@ es:
                taken: "ya esta registrado"
              password:
                blank: "no puede estar en blanco"
+             current_password:
+               blank: "(actual) no puede estar en blanco"

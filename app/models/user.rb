@@ -17,22 +17,14 @@ class User < ApplicationRecord
   validates :nombres_apellidos, presence: {message: "no puede estar en blanco"}
   validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: " Solo puede contener letras" }
   validates :nombres_apellidos, length: {in: 20..50, message: " Ingrese su nombre completo por favor"}
-  validate  :validar_dia_hoy, :mayor_de_edad
-
-  #valida el dia de hoy
-  def validar_dia_hoy
-    dia_de_hoy = Time.now.day
-    if fecha_nacimiento.day > dia_de_hoy
-      errors.add(:fecha_nacimiento, "Incorrecta, aun no tienes 18 años")
-    end
-  end
+  validate   :mayor_de_edad
 
   #verifica que el usuario que se registra sea mayor de 18 años
   #si se desea usar esta validacion en registrations quitar - 18 de Time.now.year en el formulario de registro
   def mayor_de_edad
     edad = Date.today.year - fecha_nacimiento.year
-    if edad < 18
-      errors.add(:fecha_nacimiento,"Debes ser mayor de 18 años.")
+    if edad < 18 || fecha_nacimiento > Date.today
+      errors.add(:fecha_nacimiento,"Incorrecta, aun no tienes 18 años.")
     end
   end
 end

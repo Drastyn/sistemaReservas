@@ -10,12 +10,12 @@
       <%= f.label :nombres_apellidos, "NOMBRES Y APELLIDOS"%><br />
       <%= f.text_field :nombres_apellidos, autofocus: true %></div>
     <div class = "field">
-      <%= f.label :nick_name,"NOMBRE DE USUARIO" %><br />
+      <%= f.label :nick_name,"NICK NAME" %><br />
       <%= f.text_field :nick_name %><br />
 
     <div class = "field">
       <%= f.label :fecha_nacimiento,"FECHA DE NACIMIENTO (DEBES SER MAYOR DE 18 AÑOS)" %><br />
-      <%= f.date_select :fecha_nacimiento,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year - 18,:end_year => 1920 %><br />
+      <%= f.date_select :fecha_nacimiento,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year,:end_year => 1920 %><br />
 
     <div class = "field">
       <%= f.label :direccion,"DIRECCIÓN" %><br />
@@ -31,7 +31,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password,"CONTRASEÑA" %>
+      <%= f.label :password,"PASSWORD" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> caracteres minimos)</em>
       <% end %><br />
@@ -39,7 +39,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation,"CONFIRMAR CONSTRASEÑA" %><br />
+      <%= f.label :password_confirmation,"CONFIRMAR PASSWORD" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
   <FONT>
