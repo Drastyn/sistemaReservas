@@ -20,7 +20,6 @@ class User < ApplicationRecord
   validate   :mayor_de_edad
 
   #verifica que el usuario que se registra sea mayor de 18 años
-  #si se desea usar esta validacion en registrations quitar - 18 de Time.now.year en el formulario de registro
   def mayor_de_edad
     edad = Date.today.year - fecha_nacimiento.year
     if edad < 18 || fecha_nacimiento > Date.today
