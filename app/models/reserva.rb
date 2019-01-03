@@ -1,30 +1,40 @@
 class Reserva < ApplicationRecord
-  belongs_to :user
+  has_many :users
+  has_many :habitacions
 
-  validate :fechaIngreso_no_debe_ser_pasada_
-  validate :fechaSalida_no_debe_ser_pasada_, :fechaSalida_entre
-  validate :fechaIngreso
-  validate :fechaSalida
   validates :cantidadPersonas, numericality: {only_integer: true, message: "Favor ingrese la cantidad de personas para hacer la reserva"}, presence: {message: "campo en blanco"}
   validates :cantidadHabitaciones, numericality: {only_integer: true, message: "Favor ingrese la cantidad de habitacion para hacer la reserva"}, presence: {message: "campo en blanco"}
   validates :estadoReserva, length: {in: 7..50, message: "Favor ingrese estado"}, presence: {message: "campo en blanco"}
   validates :precioReserva, numericality: {only_integer: true, message: "Cantidad total invalida"}, presence: {message: "campo en blanco"}
+  validate :validar_entrada
+  validate :validar_salida
+  validate :fechas_distintas
 
-  def fechaIngreso_no_debe_ser_pasada_
-    if !fechaIngreso.blank? and fechaIngreso < Date.today
-      errors.add(:fechaIngreso,"Esa fecha ya paso")
+  def validar_entrada
+    if !fecha_ingreso.blank?
+      if fecha_ingreso < Date.today
+        errors.add(:fecha_ingreso, "Esa fecha ya paso")
+      end
+    else
+      errors.add(:fecha_ingreso,"recuerda ingresar la fecha")
     end
   end
 
-  def fechaSalida_no_debe_ser_pasada_
-    if !fechaSalida.blank? and fechaSalida < Date.today
-      errors.add(:fechaSalida,"Esa fecha ya paso")
+  def validar_salida
+    if !fecha_salida.blank?
+      if fecha_salida < Date.today
+        errors.add(:fecha_salida,"Esa fecha ya paso")
+      end
+    else
+      errors.add(:fecha_salida,"recuerda ingresar la fecha")
     end
   end
 
-  def fechaSalida_entre
-    if !fechaSalida == fechaIngreso
-      errors.add(:fechaSalida,"La fecha de fecha de salida no puede ser la misma que la de entrada ")
+  def fechas_distintas
+    if !fecha_ingreso.blank? && !fecha_salida.blank?
+      if fecha_ingreso == fecha_salida
+        errors.add(:fecha_salida,"recuerda que las fechas deben ser distintas")
+      end
     end
   end
 

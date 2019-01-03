@@ -23,16 +23,18 @@ class ReservasController < ApplicationController
   end
   #POST /clientes
   def create
-    @reservas = Reserva.new(fechaIngreso: params[:reserva][:fechaIngreso],
-                            fechaSalida: params[:reserva][:fechaSalida],
+    @reservas = Reserva.new(fecha_ingreso: params[:reserva][:fecha_ingreso],
+                            fecha_salida: params[:reserva][:fecha_salida],
                             cantidadPersonas: params[:reserva][:cantidadPersonas],
                             cantidadHabitaciones: params[:reserva][:cantidadHabitaciones],
                             estadoReserva: params[:reserva][:estadoReserva],
                             precioReserva: params[:reserva][:precioReserva])
     if @reservas.save
+      @reservas.users_id = current_user.id
+      @reservas.save
       redirect_to @reservas
     else
-      render :new
+      render 'new'
     end
   end
 
