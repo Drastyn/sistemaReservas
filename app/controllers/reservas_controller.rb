@@ -24,7 +24,8 @@ class ReservasController < ApplicationController
   #POST /clientes
   def create
     @reservas = Reserva.new(fecha_ingreso: params[:reserva][:fecha_ingreso],
-                            fecha_salida: params[:reserva][:fecha_salida])
+                            fecha_salida: params[:reserva][:fecha_salida],
+                            habitacions_id: params[:reserva][:habitacions_id])
                             #cantidadPersonas: params[:reserva][:cantidadPersonas],
                             #cantidadHabitaciones: params[:reserva][:cantidadHabitaciones],
                             #estadoReserva: params[:reserva][:estadoReserva],

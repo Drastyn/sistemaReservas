@@ -35,12 +35,12 @@
           <%= "Tarifa de la habitación: $" %>
           <%= habitacion.tarifa_habitacion %>
         </div>
-        <% if user_signed_in? && current_user.user? %>
-          <div class = "btn btn-ligth" id = "boton_reservar">
-            <%= link_to "¿reservar?", new_reserva_path %>
-          </div>
-        <% end %>
      <% end %>
+   <% end %>
+   <% if user_signed_in? && current_user.user? %>
+     <div class = "btn btn-ligth" id = "boton_reservar">
+       <%= link_to "¿Realizar una reservar?", new_reserva_path %>
+     </div>
    <% end %>
  </div>
 </body>
