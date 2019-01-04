@@ -1,5 +1,5 @@
 class Habitacion < ApplicationRecord
-  has_many :reservas
+  belongs_to :reserva
 
   validates :descripcionHabitacion, length: {in: 7..200, message: "Favor ingrese una descripcion de la habitacion"}, presence: {message: "campo en blanco"}
   validates :tipoHabitacion, length: {in: 7..50, message: "Favor ingrese el tipo de habitacion"}, presence: {message: "campo en blanco"}

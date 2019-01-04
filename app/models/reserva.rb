@@ -2,13 +2,14 @@ class Reserva < ApplicationRecord
   has_many :users
   has_many :habitacions
 
-  validates :cantidadPersonas, numericality: {only_integer: true, message: "Favor ingrese la cantidad de personas para hacer la reserva"}, presence: {message: "campo en blanco"}
-  validates :cantidadHabitaciones, numericality: {only_integer: true, message: "Favor ingrese la cantidad de habitacion para hacer la reserva"}, presence: {message: "campo en blanco"}
-  validates :estadoReserva, length: {in: 7..50, message: "Favor ingrese estado"}, presence: {message: "campo en blanco"}
-  validates :precioReserva, numericality: {only_integer: true, message: "Cantidad total invalida"}, presence: {message: "campo en blanco"}
+  #validates :cantidadPersonas, numericality: {only_integer: true, message: "Favor ingrese la cantidad de personas para hacer la reserva"}, presence: {message: "campo en blanco"}
+  #validates :cantidadHabitaciones, numericality: {only_integer: true, message: "Favor ingrese la cantidad de habitacion para hacer la reserva"}, presence: {message: "campo en blanco"}
+  #validates :estadoReserva, length: {in: 7..50, message: "Favor ingrese estado"}, presence: {message: "campo en blanco"}
+  #validates :precioReserva, numericality: {only_integer: true, message: "Cantidad total invalida"}, presence: {message: "campo en blanco"}
   validate :validar_entrada
   validate :validar_salida
   validate :fechas_distintas
+  validate :salida_mayor_que_entrada
 
   def validar_entrada
     if !fecha_ingreso.blank?
@@ -38,4 +39,11 @@ class Reserva < ApplicationRecord
     end
   end
 
+  def salida_mayor_que_entrada
+      if !fecha_ingreso.blank? && !fecha_salida.blank?
+        if fecha_ingreso > fecha_salida
+          errors.add(:fecha_salida,"recuerda que esta fecha debe ser despues de la de ingreso")
+        end
+      end
+  end
 end

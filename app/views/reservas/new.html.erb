@@ -21,14 +21,6 @@
           <%= f.label :fecha_salida, "Fecha de salida" %><br />
           <%= f.date_field :fecha_salida,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year,:end_year => Time.now.year + 1 %><br />
         </div>
-        <div class="field">
-          <%= f.label :cantidadPersonas, "Cantidad de personas" %><br />
-          <%= f.number_field :cantidadPersonas, class:"form-control-cant" %>
-        </div>
-        <div class="field">
-          <%= f.label :cantidadHabitaciones, "Cantidad de Habtaciones" %><br />
-          <%= f.number_field :cantidadHabitaciones, class:"form-control-cant" %>
-        </div>
         <div class = "field">
           <%= f.submit "Guardar", class:"btn be-red white" %>
         </div>
