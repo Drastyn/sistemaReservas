@@ -2,6 +2,9 @@
   <div id = "contener_usuarios">
     <% if user_signed_in? && current_user.admin? %>
       <h1> USUARIOS </h1>
+      <div class = "btn btn-ligth">
+        <%= link_to "Reservas", reservas_url %>
+      </div>
       <table class = "table">
         <thead>
           <tr>
@@ -37,6 +40,7 @@
       <!-- para no crear id error otra vez, uso el de habitación -->
       <div id ="errores_creacion_habitacion">
         <h1> WOOOOOOOPS!, NADA POR AQUÍ </h1>
+      </div>
     <% end %>
   </div>
 </body>

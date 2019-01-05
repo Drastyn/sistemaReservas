@@ -9,7 +9,7 @@
       <p>pulse el número de la habitación para editar o eliminar</p>
     <% end %>
     <% @habitacions.each do |habitacion|%>
-      <%if habitacion.disponible? %>
+      <% if habitacion.disponible? %>
         <% if user_signed_in? && current_user.admin? %>
           <h1><%= link_to habitacion.id, habitacion %></h1>
         <% else %>
@@ -35,13 +35,44 @@
           <%= "Tarifa de la habitación: $" %>
           <%= habitacion.tarifa_habitacion %>
         </div>
-     <% end %>
-   <% end %>
-   <% if user_signed_in? && current_user.user? %>
-     <div class = "btn btn-ligth" id = "boton_reservar">
-       <%= link_to "¿Realizar una reservar?", new_reserva_path %>
-     </div>
-   <% end %>
+        <% if user_signed_in? && current_user.admin? %>
+          <div>
+            <%= habitacion.estado_habitacion %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if habitacion.ocupada? && user_signed_in? && current_user.admin? %>
+      <h1><%= link_to habitacion.id, habitacion %></h1>
+      <div>
+        <%= "Descripción de la habitacion: " %>
+        <%= habitacion.descripcionHabitacion %>
+      </div>
+      <div>
+        <%= "Cantidad de personas: " %>
+        <%= habitacion.numeroPersonas %>
+      </div>
+      <div>
+        <%= "Tipo de habitación: " %>
+        <%= habitacion.tipoHabitacion %>
+      </div>
+      <div>
+        <%= "La habitación esta " %>
+        <%= habitacion.estado_habitacion%>
+      </div>
+      <div>
+        <%= "Tarifa de la habitación: $" %>
+        <%= habitacion.tarifa_habitacion %>
+      </div>
+      <div>
+        <%= habitacion.estado_habitacion %>
+      </div>
+      <% end %>
+  <% end %>
+  <% if user_signed_in? && current_user.user? %>
+    <div class = "btn btn-ligth" id = "boton_reservar">
+      <%= link_to "¿Realizar una reservar?", new_reserva_path %>
+    </div>
+  <% end %>
  </div>
 </body>
 

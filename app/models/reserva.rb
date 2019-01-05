@@ -9,10 +9,17 @@ class Reserva < ApplicationRecord
   validate :validar_entrada
   validate :validar_salida
   validate :fechas_distintas
+  validate :rango_habitaciones
   validate :salida_mayor_que_entrada
   validates :habitacions_id, presence: {message: " No puede estar en blanco"}
   validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo numero"}
   validates :habitacions_id, length: {is: 1, message: "Ingresa una valida"}
+
+  def rango_habitaciones
+    if habitacions_id < 1 || habitacions_id > 9
+      errors.add(:habitacions_id," No existe")
+    end
+  end
 
   def validar_entrada
     if !fecha_ingreso.blank?

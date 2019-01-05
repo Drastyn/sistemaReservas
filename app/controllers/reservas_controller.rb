@@ -33,7 +33,7 @@ class ReservasController < ApplicationController
     if @reservas.save
       @reservas.users_id = current_user.id
       @reservas.save
-      redirect_to @reservas
+      redirect_to :action => :index
     else
       render 'new'
     end

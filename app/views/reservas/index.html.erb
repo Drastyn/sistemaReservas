@@ -1,21 +1,33 @@
-<% @reservas.each do |reserva|%>
-  <h1><%= reserva.id %></h1>
-  <div>
-    <%= reserva.fechaIngreso %>
+<body id = "fondo_registro_habitacion">
+  <div id = "contener_reservas">
+    <%if user_signed_in? && current_user.admin? %>
+      <h1> Reservas </h1>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th> Numero habitacion </th>
+            <th> ID Usuario </th>
+            <th> Fecha de ingreso </th>
+            <th> Fecha de salida </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reservas = Reserva.all %>
+          <% @reservas.each do |reserva| %>
+          <tr>
+            <td> <%= reserva.habitacions_id %> </td>
+            <td> <%= reserva.users_id %> </td>
+            <td> <%= reserva.fecha_ingreso %> </td>
+            <td> <%= reserva.fecha_salida %> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <!-- para no crear id error otra vez, uso el de habitación -->
+      <div id ="errores_creacion_habitacion">
+        <h1> WOOOOOOOPS!, NADA POR AQUÍ </h1>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= reserva.fechaSalida %>
-  </div>
-  <div>
-    <%= reserva.cantidadPersonas %>
-  </div>
-  <div>
-    <%= reserva.cantidadHabitaciones %>
-  </div>
-  <div>
-    <%= reserva.estadoReserva %>
-  </div>
-  <div>
-    <%= reserva.precioReserva %>
-  </div>
-<%end%>
+</body>
