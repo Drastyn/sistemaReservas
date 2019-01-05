@@ -11,13 +11,23 @@ class Reserva < ApplicationRecord
   validate :fechas_distintas
   validate :rango_habitaciones
   validate :salida_mayor_que_entrada
+  validate :numero_habitacion_no_blanco
   validates :habitacions_id, presence: {message: " No puede estar en blanco"}
-  validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo numero"}
+  validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero"}
   validates :habitacions_id, length: {is: 1, message: "Ingresa una valida"}
 
+
+  def numero_habitacion_no_blanco
+    if habitacions_id.blank?
+      errors.add(:habitacions_id," Recuerda ingresar el numero")
+    end
+  end
+
   def rango_habitaciones
-    if habitacions_id < 1 || habitacions_id > 9
-      errors.add(:habitacions_id," No existe")
+    if !habitacions_id.blank?
+      if habitacions_id < 1 || habitacions_id > 9
+        errors.add(:habitacions_id," No existe")
+      end
     end
   end
 
@@ -27,7 +37,7 @@ class Reserva < ApplicationRecord
         errors.add(:fecha_ingreso, "Esa fecha ya paso")
       end
     else
-      errors.add(:fecha_ingreso,"recuerda ingresar la fecha")
+      errors.add(:fecha_ingreso,"Recuerda ingresar la fecha")
     end
   end
 
@@ -37,14 +47,14 @@ class Reserva < ApplicationRecord
         errors.add(:fecha_salida,"Esa fecha ya paso")
       end
     else
-      errors.add(:fecha_salida,"recuerda ingresar la fecha")
+      errors.add(:fecha_salida,"Recuerda ingresar la fecha")
     end
   end
 
   def fechas_distintas
     if !fecha_ingreso.blank? && !fecha_salida.blank?
       if fecha_ingreso == fecha_salida
-        errors.add(:fecha_salida,"recuerda que las fechas deben ser distintas")
+        errors.add(:fecha_salida,"Recuerda que las fechas deben ser distintas")
       end
     end
   end
@@ -52,7 +62,7 @@ class Reserva < ApplicationRecord
   def salida_mayor_que_entrada
       if !fecha_ingreso.blank? && !fecha_salida.blank?
         if fecha_ingreso > fecha_salida
-          errors.add(:fecha_salida,"recuerda que esta fecha debe ser despues de la de ingreso")
+          errors.add(:fecha_salida,"Recuerda que esta fecha debe ser despues de la de ingreso")
         end
       end
   end
