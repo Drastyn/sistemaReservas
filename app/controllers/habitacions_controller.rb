@@ -20,8 +20,8 @@ class HabitacionsController < ApplicationController
     @habitacions = Habitacion.new(descripcionHabitacion: params[:habitacion][:descripcionHabitacion],
                                         numeroPersonas: params[:habitacion][:numeroPersonas],
                                         tipoHabitacion: params[:habitacion][:tipoHabitacion],
-                                        tarifa_habitacion: params[:habitacion][:tarifa_habitacion])
-                                        #estadoHabitacion: params[:habitacion][:estadoHabitacion])
+                                        tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
+                                        estado_habitacion: params[:habitacion][:estado_habitacion])
     #validacion correcta de la creacion de la habitacion
     if @habitacions.save
       redirect_to :action => :index
@@ -42,7 +42,8 @@ class HabitacionsController < ApplicationController
     if @habitacions.update(descripcionHabitacion: params[:habitacion][:descripcionHabitacion],
                            numeroPersonas: params[:habitacion][:numeroPersonas],
                            tipoHabitacion: params[:habitacion][:tipoHabitacion],
-                           tarifa_habitacion: params[:habitacion][:tarifa_habitacion])
+                           tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
+                           estado_habitacion: params[:habitacion][:estado_habitacion])
     else
       render :edit
     end

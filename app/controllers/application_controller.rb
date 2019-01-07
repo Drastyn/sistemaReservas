@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :dar_de_baja, :guardar_habitacion
 
+  #esconde la habitacion reservada en el index de habitaciones
   def guardar_habitacion
     @reserva = Reserva.last
     @habitaciones = Habitacion.all

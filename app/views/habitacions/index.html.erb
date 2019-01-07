@@ -44,7 +44,7 @@
           <%= habitacion.tarifa_habitacion %>
         </div>
       <% end %>
-      <% if habitacion.ocupada? && user_signed_in? && current_user.admin? %>
+      <% if habitacion.reservada? && user_signed_in? && current_user.admin? %>
       <h1><%= link_to habitacion.id, habitacion %></h1>
       <div>
         <%= "Descripción de la habitacion: " %>
@@ -65,9 +65,6 @@
       <div>
         <%= "Tarifa de la habitación: $" %>
         <%= habitacion.tarifa_habitacion %>
-      </div>
-      <div>
-        <%= habitacion.estado_habitacion %>
       </div>
       <% end %>
   <% end %>
