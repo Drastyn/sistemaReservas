@@ -1,0 +1,25 @@
+<h1><%= name %> reserva</h1>
+<%= form_for @reservas do |f|%>
+  <% if @reservas.errors.any? %>
+    <div id = "errores_creacion_habitacion" >
+      <%= pluralize(@reservas.errors.count, "Errores") %>
+      <ul>
+        <% @reservas.errors.full_messages.each do |error| %>
+          <li ><%= error %> </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_field :fecha_ingreso, placeholder: "Fecha de Ingreso", class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :fecha_salida, placeholder: "Fecha de Salida" , class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :habitacion_id, placeholder: "Numero de habitacion", class:"form-control" %>
+  </div>
+  <div class = "field">
+    <%= f.submit "Guardar", class:"btn btn-success" %>
+  </div>
+<% end %>

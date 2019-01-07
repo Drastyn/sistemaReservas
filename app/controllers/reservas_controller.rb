@@ -40,16 +40,24 @@ class ReservasController < ApplicationController
   end
 
   def destroy
-
+    @reservas = Reserva.find(params[:id])
+    @reservas.destroy #elimina el objeto de la BD
+    redirect_to reservas_path
   end
 
   #PUT /reservas/:id
   def update
+    @reservas = Reserva.find(params[:id])
+    if @reservas.update(fecha_ingreso: params[:reserva][:fecha_ingreso],
+                        fecha_salida: params[:reserva][:fecha_salida],
+                        habitacions_id: params[:reserva][:habitacions_id])
+    else
+      render :edit
+    end
 
   end
 
   def edit
-
+    @habitacions = Habitacion.find(params[:id])
   end
-
 end
