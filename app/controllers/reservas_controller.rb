@@ -2,6 +2,7 @@ class ReservasController < ApplicationController
   #GET /reservas
 
   #permite el acceso solo a los usuarios (comunes)
+
   def authenticate_user!
     unless current_user.present? && current_user.user?
       redirect_to root_path
@@ -33,6 +34,7 @@ class ReservasController < ApplicationController
     if @reservas.save
       @reservas.users_id = current_user.id
       @reservas.save
+      @id_habitacion = guardar_habitacion
       redirect_to :action => :index
     else
       render 'new'

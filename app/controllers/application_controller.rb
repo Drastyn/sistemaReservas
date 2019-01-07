@@ -3,7 +3,18 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :dar_de_baja
+  helper_method :dar_de_baja, :guardar_habitacion
+
+  def guardar_habitacion
+    @reserva = Reserva.last
+    @habitaciones = Habitacion.all
+    @habitaciones.each do |habitacion|
+      if @reserva.habitacions_id == habitacion.id
+        habitacion.estado_habitacion = 1
+        habitacion.save
+      end
+    end
+  end
 
   def dar_de_baja
     @usuario = current_user

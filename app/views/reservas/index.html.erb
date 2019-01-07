@@ -24,10 +24,28 @@
         </tbody>
       </table>
     <% else %>
-      <!-- para no crear id error otra vez, uso el de habitación -->
-      <div id ="errores_creacion_habitacion">
-        <h1> WOOOOOOOPS!, NADA POR AQUÍ </h1>
-      </div>
+      <h1> Mis Reservas </h1>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th> Numero habitacion </th>
+            <th> Fecha de ingreso </th>
+            <th> Fecha de salida </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reservas = Reserva.all %>
+          <% @reservas.each do |reserva| %>
+          <% if reserva.users_id == current_user.id %>
+            <tr>
+              <td> <%= reserva.habitacions_id %> </td>
+              <td> <%= reserva.fecha_ingreso %> </td>
+              <td> <%= reserva.fecha_salida %> </td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </body>

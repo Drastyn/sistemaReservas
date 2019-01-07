@@ -1,6 +1,14 @@
 <body id = "fondo_habitaciones">
   <div id = "contener_habitaciones">
     <!-- se muestran solo las habitaciones disponibles -->
+    <% if user_signed_in? && current_user.user? %>
+      <div class = "btn be-red white" id = "boton_reservar">
+        <%= link_to "¿Realizar una reserva?", new_reserva_path %>
+      </div>
+      <div class = "btn be-red white" id = "boton_reservar">
+        <%= link_to "Mis reservas", reservas_url %>
+      </div>
+    <% end %>
     <% if user_signed_in? && current_user.admin? %>
       <div class="btn be-red white">
         <%= link_to "Crear Habitacion", new_habitacion_path %>
@@ -8,7 +16,7 @@
       <p> <!-- salto de linea --> </p>
       <p>pulse el número de la habitación para editar o eliminar</p>
     <% end %>
-    <% @habitacions.each do |habitacion|%>
+    <% @habitacions.each do |habitacion| %>
       <% if habitacion.disponible? %>
         <% if user_signed_in? && current_user.admin? %>
           <h1><%= link_to habitacion.id, habitacion %></h1>
@@ -35,11 +43,6 @@
           <%= "Tarifa de la habitación: $" %>
           <%= habitacion.tarifa_habitacion %>
         </div>
-        <% if user_signed_in? && current_user.admin? %>
-          <div>
-            <%= habitacion.estado_habitacion %>
-          </div>
-        <% end %>
       <% end %>
       <% if habitacion.ocupada? && user_signed_in? && current_user.admin? %>
       <h1><%= link_to habitacion.id, habitacion %></h1>
@@ -68,52 +71,5 @@
       </div>
       <% end %>
   <% end %>
-  <% if user_signed_in? && current_user.user? %>
-    <div class = "btn btn-ligth" id = "boton_reservar">
-      <%= link_to "¿Realizar una reserva?", new_reserva_path %>
-    </div>
-  <% end %>
  </div>
 </body>
-
-<!-- <body>
-<div id = "titulo">
-  <h1>Habitaciones</h1>
-</div>
- The four columns
-<div class="row">
-  <div class="column">
-    <img src="https://q-ec.bstatic.com/images/hotel/max500/124/124621905.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://q-ec.bstatic.com/images/hotel/max1024x768/124/124621797.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://q-ec.bstatic.com/images/hotel/max1024x768/162/162618968.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://q-ec.bstatic.com/images/hotel/max1024x768/122/122061111.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://q-ec.bstatic.com/images/hotel/max1024x768/121/121929555.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://r-ec.bstatic.com/images/hotel/max1024x768/162/162619531.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://r-ec.bstatic.com/images/hotel/max1024x768/121/121929548.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-  <div class="column">
-    <img src="https://r-ec.bstatic.com/images/hotel/max1024x768/122/122061115.jpg" alt="" style="width:100%" class="img-circle" onclick="myFunction(this);">
-  </div>
-</div>
-
-
-
-<div class = "container" id="containerImagen">
-  <span onclick="this.parentElement.style.display='none'" id="closebtnImagen">&times;</span>
-  <img id="expandedImg" style="width:100%">
-  <div id="imgtext"></div>
-</div>
-</body>
--->
