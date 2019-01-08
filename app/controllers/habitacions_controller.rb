@@ -24,7 +24,7 @@ class HabitacionsController < ApplicationController
                                         estado_habitacion: params[:habitacion][:estado_habitacion])
     #validacion correcta de la creacion de la habitacion
     if @habitacions.save
-      redirect_to :action => :index
+      redirect_to habitacions_path
     else
       render 'new'
     end
