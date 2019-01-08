@@ -11,8 +11,12 @@ class ApplicationController < ActionController::Base
     @habitaciones = Habitacion.all
     @habitaciones.each do |habitacion|
       if @reserva.habitacions_id == habitacion.id
-        habitacion.estado_habitacion = 1
-        habitacion.save
+        if habitacion.disponible?
+          habitacion.estado_habitacion = 1
+          habitacion.save
+        else
+          @reserva.delete
+        end
       end
     end
   end
