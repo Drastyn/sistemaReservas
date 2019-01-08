@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       if @reserva.habitacions_id == habitacion.id
         if habitacion.disponible?
           habitacion.estado_habitacion = 1
-          habitacion.save
+          habitacion.save 
         else
           @reserva.delete
         end

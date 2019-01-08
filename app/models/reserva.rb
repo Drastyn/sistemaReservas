@@ -16,8 +16,7 @@ class Reserva < ApplicationRecord
   validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero"}
   validates :habitacions_id, length: {is: 1, message: "Ingresa una valida"}
 
-
-    def numero_habitacion_no_blanco
+  def numero_habitacion_no_blanco
     if habitacions_id.blank?
       errors.add(:habitacions_id," Recuerda ingresar el numero")
     end
