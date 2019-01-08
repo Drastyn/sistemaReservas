@@ -1,5 +1,11 @@
 <body id = "fondo_registro_habitacion">
   <div id = "contener_reservas">
+    <% if !user_signed_in? %>
+      <!-- para no crear id error otra vez, uso el de habitación -->
+      <div id ="errores_creacion_habitacion">
+        <h1> WOOOOOOOPS!, NADA POR AQUÍ </h1>
+      </div>
+    <% end %>
     <%if user_signed_in? && current_user.admin? %>
       <h1> Reservas </h1>
       <table class = "table">
@@ -23,7 +29,8 @@
           <% end %>
         </tbody>
       </table>
-    <% else %>
+    <% end %>
+    <% if user_signed_in? && current_user.user? %>
       <h1> Mis Reservas </h1>
 
       <%flash.each do |name, msg| %>

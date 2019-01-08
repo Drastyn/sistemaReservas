@@ -13,14 +13,16 @@ class ApplicationController < ActionController::Base
     @reserva = Reserva.last
     @habitaciones = Habitacion.all
     @habitaciones.each do |habitacion|
-      if @reserva.habitacions_id == habitacion.id
-        if habitacion.disponible?
-          habitacion.estado_habitacion = 1
-          habitacion.save
-          redirect_to reservas_path ,  success: "Reserva realizada con exito"
-        else
-          @reserva.delete
-          redirect_to reservas_path ,  danger: "No se ha realizado la reserva"
+      if user_signed_in? && current_user.user?
+        if @reserva.habitacions_id == habitacion.id
+          if habitacion.disponible?
+            habitacion.estado_habitacion = 1
+            habitacion.save
+            redirect_to reservas_path ,  success: "Reserva realizada con exito"
+          else
+            @reserva.delete
+            redirect_to reservas_path ,  danger: "No se ha realizado la reserva"
+          end
         end
       end
     end
