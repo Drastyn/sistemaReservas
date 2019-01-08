@@ -25,6 +25,13 @@
       </table>
     <% else %>
       <h1> Mis Reservas </h1>
+
+      <%flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %>">
+          <%= msg %>
+        </div>
+      <% end %>
+
       <table class = "table">
         <thead>
           <tr>

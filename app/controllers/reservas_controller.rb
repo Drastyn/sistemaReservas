@@ -35,7 +35,6 @@ class ReservasController < ApplicationController
       @reservas.users_id = current_user.id
       @reservas.save
       @id_habitacion = guardar_habitacion
-      redirect_to :action => :index
     else
       render 'new'
     end

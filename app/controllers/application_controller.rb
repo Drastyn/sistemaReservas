@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  add_flash_types :danger, :info, :success, :warning
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :dar_de_baja, :guardar_habitacion
+
 
   #esconde la habitacion reservada en el index de habitaciones
   def guardar_habitacion
@@ -13,9 +16,11 @@ class ApplicationController < ActionController::Base
       if @reserva.habitacions_id == habitacion.id
         if habitacion.disponible?
           habitacion.estado_habitacion = 1
-          habitacion.save 
+          habitacion.save
+          redirect_to reservas_path ,  success: "Reserva realizada con exito"
         else
           @reserva.delete
+          redirect_to reservas_path ,  danger: "No se ha realizado la reserva"
         end
       end
     end
