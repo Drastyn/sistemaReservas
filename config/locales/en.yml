@@ -44,3 +44,4 @@ es:
                blank: "no puede estar en blanco"
              current_password:
                blank: "(actual) no puede estar en blanco"
+               invalid: "(actual) invalida"
