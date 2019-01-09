@@ -44,6 +44,9 @@ class HabitacionsController < ApplicationController
                            tipoHabitacion: params[:habitacion][:tipoHabitacion],
                            tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
                            estado_habitacion: params[:habitacion][:estado_habitacion])
+    end
+    if @habitacions.save
+      redirect_to habitacions_path
     else
       render :edit
     end

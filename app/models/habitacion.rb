@@ -7,6 +7,8 @@ class Habitacion < ApplicationRecord
   validates :tarifa_habitacion, numericality: {only_integer: true, message: "Favor solo ingrese numeros"}
   validates :tarifa_habitacion, presence: {message: "Campo en blanco"}
   validate  :validar_tarifa
+  validates  :estado_habitacion, presence: { message: " No puede estar en blanco"}
+
 
   #valida que el campo de la tarifa no este en blanco
   def tarifa_no_nula
