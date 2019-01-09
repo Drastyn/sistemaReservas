@@ -21,7 +21,8 @@ class HabitacionsController < ApplicationController
                                         numeroPersonas: params[:habitacion][:numeroPersonas],
                                         tipoHabitacion: params[:habitacion][:tipoHabitacion],
                                         tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
-                                        estado_habitacion: params[:habitacion][:estado_habitacion])
+                                        estado_habitacion: params[:habitacion][:estado_habitacion],
+                                        numero_habitacion: params[:habitacion][:numero_habitacion])
     #validacion correcta de la creacion de la habitacion
     if @habitacions.save
       redirect_to habitacions_path
@@ -32,8 +33,12 @@ class HabitacionsController < ApplicationController
 
   def destroy
     @habitacions = Habitacion.find(params[:id])
-    @habitacions.destroy #elimina el objeto de la BD
-    redirect_to habitacions_path
+    if @habitacions.disponible?
+      @habitacions.destroy #elimina el objeto de la BD
+      redirect_to habitacions_path
+    else
+      @mensaje = mensaje_no_se_puede_eliminar
+    end
   end
 
   #PUT /habitacion/:id
@@ -43,7 +48,8 @@ class HabitacionsController < ApplicationController
                            numeroPersonas: params[:habitacion][:numeroPersonas],
                            tipoHabitacion: params[:habitacion][:tipoHabitacion],
                            tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
-                           estado_habitacion: params[:habitacion][:estado_habitacion])
+                           estado_habitacion: params[:habitacion][:estado_habitacion],
+                           numero_habitacion: params[:habitacion][:numero_habitacion])
     end
     if @habitacions.save
       redirect_to habitacions_path

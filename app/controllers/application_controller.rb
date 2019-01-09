@@ -5,23 +5,25 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :dar_de_baja, :guardar_habitacion
+  helper_method :dar_de_baja, :guardar_habitacion, :mensaje_no_se_puede_eliminar
 
-
+  def mensaje_no_se_puede_eliminar
+    redirect_to edit_habitacion_url, danger: "No se puede eliminar una habitacion reservada"
+  end
   #esconde la habitacion reservada en el index de habitaciones
   def guardar_habitacion
     @reserva = Reserva.last
     @habitaciones = Habitacion.all
     @habitaciones.each do |habitacion|
       if user_signed_in? && current_user.user?
-        if @reserva.habitacions_id == habitacion.id
+        if @reserva.habitacions_id == habitacion.numero_habitacion
           if habitacion.disponible?
             habitacion.estado_habitacion = 1
             habitacion.save
             redirect_to reservas_path ,  success: "Reserva realizada con exito"
           else
             @reserva.delete
-            redirect_to reservas_path ,  danger: "No se ha realizado la reserva"
+            redirect_to reservas_path ,  danger: "No se ha realizado la reserva, esa habitacion ya esta reservada"
           end
         end
       end

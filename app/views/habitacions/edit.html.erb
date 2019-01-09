@@ -2,4 +2,9 @@
   <div style="width: 80%;margin: 0 auto;">
     <%= render "form", name: "Editar" %>
   </div>
+  <%flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %>">
+      <%= msg %>
+    </div>
+  <% end %>
 </body>

@@ -20,8 +20,12 @@
       <% if habitacion.disponible? %>
         <% if user_signed_in? && current_user.admin? %>
           <h1><%= link_to habitacion.id, habitacion %></h1>
+          <div>
+            <%= "Numero de la habitacion: " %>
+            <%= habitacion.numero_habitacion %>
+          </div>
         <% else %>
-          <h1><%= habitacion.id %></h1>
+          <h1><%= habitacion.numero_habitacion %></h1>
         <% end %>
         <div>
           <%= "Descripción de la habitacion: " %>
@@ -46,6 +50,10 @@
       <% end %>
       <% if habitacion.reservada? && user_signed_in? && current_user.admin? %>
       <h1><%= link_to habitacion.id, habitacion %></h1>
+      <div>
+        <%= "Numero de la habitacion: " %>
+        <%= habitacion.numero_habitacion %>
+      </div>
       <div>
         <%= "Descripción de la habitacion: " %>
         <%= habitacion.descripcionHabitacion %>
