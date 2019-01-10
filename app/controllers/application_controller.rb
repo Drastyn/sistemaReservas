@@ -5,9 +5,16 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :dar_de_baja, :guardar_habitacion, :mensaje_no_se_puede_eliminar, :mensaje_no_se_puede_editar, :mensaje_se_edito_habitacion
+  helper_method :dar_de_baja, :guardar_habitacion, :mensaje_no_se_puede_eliminar, :mensaje_no_se_puede_editar, :mensaje_se_edito_habitacion,
+  :mensaje_usuario_editado_con_exito, :mensaje_usuario_con_error
 
+  def mensaje_usuario_con_error
+    redirect_to users_path, danger: "No se ha editado el usuario"
+  end
 
+  def mensaje_usuario_editado_con_exito
+    redirect_to edit_users_path, success: "Se a editado con exito"
+  end
   def mensaje_se_edito_habitacion
     flash[:danger] = "Recuerda que si vas a camibar el numero de la habitacion debes notificar al cliente que la tiene reservada"
   end

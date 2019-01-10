@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_admin!
   #GET /users
   def index
     @users = User.all
@@ -43,8 +44,9 @@ class UsersController < ApplicationController
                      email: params[:user][:email],
                      user_role: params[:user][:user_role],
                      estado_user: params[:user][:estado_user])
+      @exito = mensaje_usuario_editado_con_exito
     else
-      render :edit
+      @error = mensaje_usuario_con_error
     end
 
   end

@@ -1,52 +1,42 @@
-<body>
-  <div>
-    <div class = "btn btn-ligth">
-      <%= link_to "Reservas", reservas_url %>
-    </div>
-    <% @users.each do |user| %>
-        <% if user_signed_in? && current_user.admin? %>
-        <h1> USUARIOS </h1>
-
-        <h1><%= link_to user.id, user %></h1>
-        <div>
-          <%= "ID usuario: " %>
-          <%= user.id %>
-        </div>
-        <% else %>
-          <h1><%= user.id %></h1>
-        <% end %>
-        <div>
-          <%= "Nombre Usuario: " %>
-          <%= user.nombres_apellidos %>
-        </div>
-        <div>
-          <%= "Apodo: " %>
-          <%= user.nick_name %>
-        </div>
-        <div>
-          <%= "Direccion: " %>
-          <%= user.direccion %>
-        </div>
-        <div>
-          <%= "Numero de telefono: " %>
-          <%= user.telefono%>
-        </div>
-        <div>
-          <%= "Fecha de nacimiento: " %>
-          <%= user.fecha_nacimiento %>
-        </div>
-        <div>
-          <%= "Correo Electronico: " %>
-          <%= user.email %>
-        </div>
-        <div>
-          <%= "Rol de Usuario: " %>
-          <%= user.user_role %>
-        </div>
-      <div>
-        <%= "Estado del Usuario: " %>
-        <%= user.estado_user %>
+<body id = "fondo_usuario">
+  <div id = contener_usuarios>
+    <% if user_signed_in? && current_user.admin? %>
+      <div class = "btn btn-ligth">
+        <%= link_to "Reservas", reservas_url %>
       </div>
+      <div class = "btn btn-ligth">
+        <%= link_to "Crear usuario", new_user_path %>
+      </div>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th> ID </th>
+            <th> Nombres y Apellidos </th>
+            <th> Nombre de usuario </th>
+            <th> Fecha de nacimiento </th>
+            <th> Dirección </th>
+            <th> Teléfono </th>
+            <th> Email </th>
+            <th> Rol del usuario </th>
+            <th> Estado del usuario </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td> <%= link_to user.id, user %> </td>
+              <td> <%= user.nombres_apellidos %> </td>
+              <td> <%= user.nick_name %> </td>
+              <td> <%= user.fecha_nacimiento %> </td>
+              <td> <%= user.direccion %> </td>
+              <td> +569 <%= user.telefono %> </td>
+              <td> <%= user.email %> </td>
+              <td> <%= user.user_role %> </td>
+              <td> <%= user.estado_user %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </body>
