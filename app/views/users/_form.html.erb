@@ -1,4 +1,4 @@
-<h1><%= name %> Usuarios</h1>
+<h1><%= name %> usuario</h1>
 <%= form_for @users do |f|%>
   <% if @users.errors.any? %>
     <div id = "errores_creacion_habitacion" >
@@ -10,24 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.text_field :nombres_apellidos, placeholder: "Nombre del usuario", class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :nick_name, placeholder: "Apodo", class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :direccion, placeholder: "Direccion" , class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :telefono, placeholder: "Telefono", class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :fecha_nacimiento, placeholder: "Fecha de nacimiento", class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :email, placeholder: "Correo Electronico", class:"form-control" %>
-  </div>
   <div class="field">
     <%= f.select :user_role, ['user','admin']%>
     <div class = "field">
