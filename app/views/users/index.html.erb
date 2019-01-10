@@ -1,0 +1,52 @@
+<body>
+  <div>
+    <div class = "btn btn-ligth">
+      <%= link_to "Reservas", reservas_url %>
+    </div>
+    <% @users.each do |user| %>
+        <% if user_signed_in? && current_user.admin? %>
+        <h1> USUARIOS </h1>
+
+        <h1><%= link_to user.id, user %></h1>
+        <div>
+          <%= "ID usuario: " %>
+          <%= user.id %>
+        </div>
+        <% else %>
+          <h1><%= user.id %></h1>
+        <% end %>
+        <div>
+          <%= "Nombre Usuario: " %>
+          <%= user.nombres_apellidos %>
+        </div>
+        <div>
+          <%= "Apodo: " %>
+          <%= user.nick_name %>
+        </div>
+        <div>
+          <%= "Direccion: " %>
+          <%= user.direccion %>
+        </div>
+        <div>
+          <%= "Numero de telefono: " %>
+          <%= user.telefono%>
+        </div>
+        <div>
+          <%= "Fecha de nacimiento: " %>
+          <%= user.fecha_nacimiento %>
+        </div>
+        <div>
+          <%= "Correo Electronico: " %>
+          <%= user.email %>
+        </div>
+        <div>
+          <%= "Rol de Usuario: " %>
+          <%= user.user_role %>
+        </div>
+      <div>
+        <%= "Estado del Usuario: " %>
+        <%= user.estado_user %>
+      </div>
+    <% end %>
+  </div>
+</body>

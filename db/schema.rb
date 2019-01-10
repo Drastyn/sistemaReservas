@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_102824) do
   end
 
   create_table "reservas", force: :cascade do |t|
+    t.integer "cantidadHabitaciones"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "habitacions_id"
