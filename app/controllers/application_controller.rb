@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :dar_de_baja, :guardar_habitacion, :mensaje_no_se_puede_eliminar
-
+  
   def mensaje_no_se_puede_eliminar
     redirect_to edit_habitacion_url, danger: "No se puede eliminar una habitacion reservada"
   end
-  
+
   #esconde la habitacion reservada en el index de habitaciones
   def guardar_habitacion
     @reserva = Reserva.last

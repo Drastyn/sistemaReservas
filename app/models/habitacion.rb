@@ -12,13 +12,14 @@ class Habitacion < ApplicationRecord
   validates :numero_habitacion, numericality: {only_integer: true, message: "Recuerda que debe ser un numero entero"}
   validates :numero_habitacion, uniqueness: {message: " Ya esta en uso"}
 
-
   #valida que el campo de la tarifa no este en blanco
+
   def tarifa_no_nula
     if tarifa_habitacion == nil
       errors.add(:tarifa_habitacion,"Campo en blanco")
     end
   end
+
   #valida que la tarifa de la habitacion no sea menor a $10000
   def validar_tarifa
     if(tarifa_habitacion != nil)

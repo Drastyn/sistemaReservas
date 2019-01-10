@@ -17,8 +17,9 @@ class Reserva < ApplicationRecord
   validate :validate_codigo_habitacion
 
   def validate_codigo_habitacion
-    errors.add(:habitacions_id, "Es invalido") unless Habitacion.exists?(self.habitacions_id)
+    errors.add(:habitacions_id, "(Codigo) es invalido") unless Habitacion.exists?(self.habitacions_id)
   end
+
   def numero_habitacion_no_blanco
     if habitacions_id.blank?
       errors.add(:habitacions_id," Recuerda ingresar el numero")

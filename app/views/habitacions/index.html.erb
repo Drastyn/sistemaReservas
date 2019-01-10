@@ -47,6 +47,10 @@
           <%= "Tarifa de la habitación: $" %>
           <%= habitacion.tarifa_habitacion %>
         </div>
+        <div>
+          <%= "Status de la habitacion: " %>
+          <%= habitacion.status_habitacion %>
+        </div>
         <% if user_signed_in? && current_user.user? %>
           <div>
             <%= "Codigo habitacion" %>
@@ -79,6 +83,10 @@
       <div>
         <%= "Tarifa de la habitación: $" %>
         <%= habitacion.tarifa_habitacion %>
+      </div>
+      <div>
+        <%= "Status de la habitacion: " %>
+        <%= habitacion.status_habitacion %>
       </div>
       <% end %>
   <% end %>
