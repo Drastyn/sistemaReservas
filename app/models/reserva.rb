@@ -14,8 +14,11 @@ class Reserva < ApplicationRecord
   validate :numero_habitacion_no_blanco
   validates :habitacions_id, presence: {message: " No puede estar en blanco"}
   validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero"}
-  validates :habitacions_id, length: {is: 1, message: "Ingresa una valida"}
+  validate :validate_codigo_habitacion
 
+  def validate_codigo_habitacion
+    errors.add(:habitacions_id, "Es invalido") unless Habitacion.exists?(self.habitacions_id)
+  end
   def numero_habitacion_no_blanco
     if habitacions_id.blank?
       errors.add(:habitacions_id," Recuerda ingresar el numero")

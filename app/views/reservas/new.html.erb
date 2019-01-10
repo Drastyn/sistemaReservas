@@ -22,7 +22,7 @@
           <%= f.date_field :fecha_salida,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year,:end_year => Time.now.year + 1 %><br />
         </div>
         <div class="field">
-          <%= f.label :habitacions_id, "Por favor ingresa el número de la habitación que deseas reservar" %><br />
+          <%= f.label :habitacions_id, "Por favor ingresa el codigo de la habitación que deseas reservar" %><br />
           <%= f.text_field :habitacions_id %>
         </div>
         <div class = "field">

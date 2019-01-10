@@ -47,6 +47,12 @@
           <%= "Tarifa de la habitación: $" %>
           <%= habitacion.tarifa_habitacion %>
         </div>
+        <% if user_signed_in? && current_user.user? %>
+          <div>
+            <%= "Codigo habitacion" %>
+            <%= habitacion.id %>
+          </div>
+        <% end %>
       <% end %>
       <% if habitacion.reservada? && user_signed_in? && current_user.admin? %>
       <h1><%= link_to habitacion.id, habitacion %></h1>

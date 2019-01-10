@@ -4,4 +4,5 @@ class ApplicationRecord < ActiveRecord::Base
   enum user_role:  [:user , :admin]
   enum estado_habitacion: [:disponible , :reservada]
   enum estado_user: [:activo, :inactivo]
+  enum status_habitacion: [:activa, :inactiva]
 end

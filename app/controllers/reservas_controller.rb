@@ -2,7 +2,6 @@ class ReservasController < ApplicationController
   #GET /reservas
 
   #permite el acceso solo a los usuarios (comunes)
-
   def authenticate_user!
     unless current_user.present? && current_user.user?
       redirect_to root_path

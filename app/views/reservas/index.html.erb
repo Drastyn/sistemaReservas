@@ -11,6 +11,7 @@
       <table class = "table">
         <thead>
           <tr>
+            <th> ID habitacion </th>
             <th> Numero habitacion </th>
             <th> ID Usuario </th>
             <th> Fecha de ingreso </th>
@@ -22,6 +23,7 @@
           <% @reservas.each do |reserva| %>
           <tr>
             <td> <%= reserva.habitacions_id %> </td>
+            <td> <%= reserva.habitacion_numero %> </td>
             <td> <%= reserva.users_id %> </td>
             <td> <%= reserva.fecha_ingreso %> </td>
             <td> <%= reserva.fecha_salida %> </td>
@@ -42,6 +44,7 @@
       <table class = "table">
         <thead>
           <tr>
+            <th> Codigo habitacion </th>
             <th> Numero habitacion </th>
             <th> Fecha de ingreso </th>
             <th> Fecha de salida </th>
@@ -53,6 +56,7 @@
           <% if reserva.users_id == current_user.id %>
             <tr>
               <td> <%= reserva.habitacions_id %> </td>
+              <td> <%= reserva.habitacion_numero %> </td>
               <td> <%= reserva.fecha_ingreso %> </td>
               <td> <%= reserva.fecha_salida %> </td>
             </tr>
