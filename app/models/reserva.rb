@@ -1,7 +1,6 @@
 class Reserva < ApplicationRecord
   has_many :users
   has_many :habitacions
-
   #validates :cantidadPersonas, numericality: {only_integer: true, message: "Favor ingrese la cantidad de personas para hacer la reserva"}, presence: {message: "campo en blanco"}
   #validates :cantidadHabitaciones, numericality: {only_integer: true, message: "Favor ingrese la cantidad de habitacion para hacer la reserva"}, presence: {message: "campo en blanco"}
   #validates :estadoReserva, length: {in: 7..50, message: "Favor ingrese estado"}, presence: {message: "campo en blanco"}
@@ -9,28 +8,19 @@ class Reserva < ApplicationRecord
   validate :validar_entrada
   validate :validar_salida
   validate :fechas_distintas
-  validate :rango_habitaciones
   validate :salida_mayor_que_entrada
   validate :numero_habitacion_no_blanco
   validates :habitacions_id, presence: {message: " No puede estar en blanco"}
-  validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero"}
+  validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero (recuerda que es un numero entero)"}
   validate :validate_codigo_habitacion
 
   def validate_codigo_habitacion
-    errors.add(:habitacions_id, "(Codigo) es invalido") unless Habitacion.exists?(self.habitacions_id)
+    errors.add(:habitacions_id, "(Codigo) es invalido, puede que la habitacion no exista o ya este reservada") unless Habitacion.exists?(self.habitacions_id)
   end
 
   def numero_habitacion_no_blanco
     if habitacions_id.blank?
       errors.add(:habitacions_id," Recuerda ingresar el numero")
-    end
-  end
-
-  def rango_habitaciones
-    if !habitacions_id.blank?
-      if habitacions_id < 1 || habitacions_id > 9
-        errors.add(:habitacions_id," No existe")
-      end
     end
   end
 
