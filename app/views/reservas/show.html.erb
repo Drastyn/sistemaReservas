@@ -1,6 +1,5 @@
 <body id = "fondo_habitaciones">
 <div id = "contener_habitaciones">
-  <% if user_signed_in? && current_user.user? %>
     <h1><%= @reservas.id %></h1>
     <div>
       <%= @reservas.habitacions_id %>
@@ -14,6 +13,5 @@
     <div class = "btn btn-info" id = "boton_guardado_error">
       <%= link_to "Editar", edit_reserva_path(@reservas) %>
     </div>
-  <%end%>
 </div>
 </body>

@@ -3,12 +3,12 @@ class ReservasController < ApplicationController
 
   #permite el acceso solo a los usuarios (comunes)
   def authenticate_user!
-    unless current_user.present? && current_user.user?
+    unless current_user.present?
       redirect_to root_path
     end
   end
 
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   def index
     @reservas = Reserva.all
   end
@@ -25,7 +25,8 @@ class ReservasController < ApplicationController
   def create
     @reservas = Reserva.new(fecha_ingreso: params[:reserva][:fecha_ingreso],
                             fecha_salida: params[:reserva][:fecha_salida],
-                            habitacions_id: params[:reserva][:habitacions_id])
+                            habitacions_id: params[:reserva][:habitacions_id],
+                            estado_reserva: params[:reserva][:estado_reserva])
                             #cantidadPersonas: params[:reserva][:cantidadPersonas],
                             #cantidadHabitaciones: params[:reserva][:cantidadHabitaciones],
                             #estadoReserva: params[:reserva][:estadoReserva],
@@ -50,7 +51,11 @@ class ReservasController < ApplicationController
     @reservas = Reserva.find(params[:id])
     if @reservas.update(fecha_ingreso: params[:reserva][:fecha_ingreso],
                         fecha_salida: params[:reserva][:fecha_salida],
-                        habitacions_id: params[:reserva][:habitacions_id])
+                        habitacions_id: params[:reserva][:habitacions_id],
+                        estado_reserva: params[:reserva][:estado_reserva])
+    end
+    if @reservas.save
+      redirect_to reservas_path
     else
       render :edit
     end
@@ -58,6 +63,6 @@ class ReservasController < ApplicationController
   end
 
   def edit
-    @habitacions = Habitacion.find(params[:id])
+    @reservas = Reserva.find(params[:id])
   end
 end

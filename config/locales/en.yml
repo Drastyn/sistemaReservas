@@ -48,4 +48,4 @@ es:
          habitacion:
            attributes:
              numero_habitacion:
-               taken: " Ya esta en uso, debes desactivar la habitacion para poder usarlo"
+               taken: " Ya esta en uso, debes desactivar la habitacion que lo tenga para poder usarlo o puedes elegir otro"

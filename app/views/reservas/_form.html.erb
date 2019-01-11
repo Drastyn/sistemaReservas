@@ -1,25 +1,47 @@
 <h1><%= name %> reserva</h1>
 <%= form_for @reservas do |f|%>
-  <% if @reservas.errors.any? %>
-    <div id = "errores_creacion_habitacion" >
-      <%= pluralize(@reservas.errors.count, "Errores") %>
-      <ul>
-        <% @reservas.errors.full_messages.each do |error| %>
-          <li ><%= error %> </li>
-        <% end %>
-      </ul>
+    <% if @reservas.errors.any? %>
+      <div id = "errores_creacion_habitacion" >
+        <%= pluralize(@reservas.errors.count, "Errores") %>
+        <ul>
+          <% @reservas.errors.full_messages.each do |error| %>
+            <li ><%= error %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :fecha_ingreso, "Fecha de entrada" %><br />
+      <%= f.date_field :fecha_ingreso,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year, :end_year => Time.now.year + 1 %><br />
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.text_field :fecha_ingreso, placeholder: "Fecha de Ingreso", class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :fecha_salida, placeholder: "Fecha de Salida" , class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :habitacions_id, placeholder: "Codigo de habitacion", class:"form-control" %>
-  </div>
-  <div class = "field">
-    <%= f.submit "Guardar", class:"btn btn-success" %>
-  </div>
+    <div class="field">
+      <%= f.label :fecha_salida, "Fecha de salida" %><br />
+      <%= f.date_field :fecha_salida,:use_two_digit_numbers => true ,:order => [:day, :month, :year],:start_year => Time.now.year,:end_year => Time.now.year + 1 %><br />
+    </div>
+    <% if user_signed_in? && current_user.user? %>
+      <div class="field">
+        <%= f.label :habitacions_id, "Codigo de habitacion" %><br />
+        <%= f.text_field :habitacions_id, :readonly => true %>
+      </div>
+      <div class="field">
+        <%= f.label :estado_reserva, "Estado de la reserva" %><br />
+        <%= f.text_field :estado_reserva, :readonly => true %>
+      </div>
+    <% end %>
+    <% if user_signed_in? && current_user.admin? %>
+      <div class="field">
+        <%= f.label :habitacions_id, "Codigo de habitacion (si cambias el código debes avisar al cliente que la tenga reservada)" %><br />
+        <%= f.text_field :habitacions_id, placeholder: "Codigo de habitacion", class:"form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :estado_reserva, "Estado de la reserva" %><br />
+        <%= f.select :estado_reserva, ['vigente','expirada']%>
+      </div>
+    <% end %>
+    <div class = "field">
+      <%= f.submit "Guardar", class:"btn btn-success" %>
+    </div>
+    <div class = "btn btn-info">
+      <%= link_to "Volver", reservas_url %>
+    </div>
 <% end %>

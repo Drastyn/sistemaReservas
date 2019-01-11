@@ -22,7 +22,7 @@ class Habitacion < ApplicationRecord
   def validar_tarifa
     if(tarifa_habitacion != nil)
       if tarifa_habitacion < 10000 || tarifa_habitacion > 200000
-        errors.add(:tarifa_habitacion, "Ingrese una tarifa adecuada")
+        errors.add(:tarifa_habitacion, "Ingrese una tarifa adecuada, recuerda que nuestro rango de precios va desde los $10000 hasta los $200000")
       end
     end
   end

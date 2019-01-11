@@ -8,20 +8,25 @@
     <% end %>
     <%if user_signed_in? && current_user.admin? %>
       <h1> Reservas </h1>
+      <p> <!-- salto de linea --> </p>
+      <p>pulse el número de la reserva para editar o eliminar</p>
       <table class = "table">
         <thead>
           <tr>
+            <th> ID Reserva </th>
             <th> ID habitacion </th>
             <th> Numero habitacion </th>
             <th> ID Usuario </th>
             <th> Fecha de ingreso </th>
             <th> Fecha de salida </th>
+            <th> Estado reserva </th>
           </tr>
         </thead>
         <tbody>
           <% @reservas = Reserva.all %>
           <% @reservas.each do |reserva| %>
           <tr>
+            <td> <%= link_to reserva.id, reserva %> </td>
             <td> <%= reserva.habitacions_id %> </td>
             <td> <%= reserva.habitacion_numero %> </td>
             <td> <%= reserva.users_id %> </td>
@@ -45,23 +50,28 @@
       <table class = "table">
         <thead>
           <tr>
+            <th> Editar </th>
             <th> Codigo habitacion </th>
             <th> Numero habitacion </th>
             <th> Fecha de ingreso </th>
             <th> Fecha de salida </th>
+            <th> Estado reserva </th>
           </tr>
         </thead>
         <tbody>
           <% @reservas = Reserva.all %>
           <% @reservas.each do |reserva| %>
-          <% if reserva.users_id == current_user.id %>
-            <tr>
-              <td> <%= reserva.habitacions_id %> </td>
-              <td> <%= reserva.habitacion_numero %> </td>
-              <td> <%= reserva.fecha_ingreso %> </td>
-              <td> <%= reserva.fecha_salida %> </td>
-              <td> <%= reserva.estado_reserva %> </td>
-            </tr>
+            <% if reserva.users_id == current_user.id %>
+              <% if reserva.vigente? %>
+                <tr>
+                  <td> <%= link_to "editar", reserva %> </td>
+                  <td> <%= reserva.habitacions_id %> </td>
+                  <td> <%= reserva.habitacion_numero %> </td>
+                  <td> <%= reserva.fecha_ingreso %> </td>
+                  <td> <%= reserva.fecha_salida %> </td>
+                  <td> <%= reserva.estado_reserva %> </td>
+                </tr>
+              <% end %>
             <% end %>
           <% end %>
         </tbody>
