@@ -1,6 +1,7 @@
 <body id = "fondo_usuario">
   <div id = contener_usuarios>
     <% if user_signed_in? && current_user.admin? %>
+      <h1> USUARIOS </h1>
       <div class = "btn btn-ligth">
         <%= link_to "Reservas", reservas_url %>
       </div>

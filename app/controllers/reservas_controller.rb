@@ -32,6 +32,7 @@ class ReservasController < ApplicationController
                             #estadoReserva: params[:reserva][:estadoReserva],
                             #precioReserva: params[:reserva][:precioReserva])
     if @reservas.save
+      @reservas.estado_reserva = 0
       @reservas.users_id = current_user.id
       @reservas.save
       @id_habitacion = guardar_habitacion

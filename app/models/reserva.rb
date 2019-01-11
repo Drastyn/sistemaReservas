@@ -13,6 +13,7 @@ class Reserva < ApplicationRecord
   validates :habitacions_id, presence: {message: " No puede estar en blanco"}
   validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero (recuerda que es un numero entero)"}
   validate :validate_codigo_habitacion
+  validate :estadia_maxima
 
   def validate_codigo_habitacion
     errors.add(:habitacions_id, "(Codigo) es invalido, puede que la habitacion no exista o ya este reservada") unless Habitacion.exists?(self.habitacions_id)
@@ -58,5 +59,14 @@ class Reserva < ApplicationRecord
           errors.add(:fecha_salida,"Recuerda que esta fecha debe ser despues de la de ingreso")
         end
       end
+  end
+  #valida que la estadia maxima se de un mes
+  def estadia_maxima
+    if !fecha_ingreso.blank? && !fecha_salida.blank?
+      estadia = fecha_salida.month - fecha_ingreso.month
+      if estadia > 1
+        errors.add(:fecha_salida, "¿segur@ que estaras tanto tiempo?")
+      end
+    end
   end
 end
