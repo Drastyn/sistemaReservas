@@ -20,9 +20,6 @@
     <div class = "btn btn-info" id = "boton_guardado_error">
       <%= link_to "Editar", edit_habitacion_path(@habitacions) %>
     </div>
-    <div class = "btn btn-danger" id = "boton_guardado_error">
-      <%= link_to "Eliminar", {:action => :destroy, :id => @habitacions.id}, :method => :delete, data: { :confirm => "¿Esta seguro que deesea eliminar la habitacion? Recuerda que tambien lo haran las reservas que esten o estuvieron asociadas a esta"} %>
-    </div>
   <%end%>
   </div>
 </body>

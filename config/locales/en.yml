@@ -45,3 +45,7 @@ es:
              current_password:
                blank: "(actual) no puede estar en blanco"
                invalid: "(actual) invalida"
+         habitacion:
+           attributes:
+             numero_habitacion:
+               taken: "Ese numero ya esta en uso, debes desactivar la habitacion para poder usarlo"

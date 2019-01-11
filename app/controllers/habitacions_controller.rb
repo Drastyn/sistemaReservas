@@ -22,7 +22,8 @@ class HabitacionsController < ApplicationController
                                         tipoHabitacion: params[:habitacion][:tipoHabitacion],
                                         tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
                                         estado_habitacion: params[:habitacion][:estado_habitacion],
-                                        numero_habitacion: params[:habitacion][:numero_habitacion])
+                                        numero_habitacion: params[:habitacion][:numero_habitacion],
+                                        status_habitacion: params[:habitacion][:status_habitacion])
     #validacion correcta de la creacion de la habitacion
     if @habitacions.save
       redirect_to habitacions_path
@@ -56,7 +57,8 @@ class HabitacionsController < ApplicationController
                            tipoHabitacion: params[:habitacion][:tipoHabitacion],
                            tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
                            estado_habitacion: params[:habitacion][:estado_habitacion],
-                           numero_habitacion: params[:habitacion][:numero_habitacion])
+                           numero_habitacion: params[:habitacion][:numero_habitacion],
+                           status_habitacion: params[:habitacion][:status_habitacion])
     end
     @reservas = Reserva.all
     @reservas.each do |reserva|
