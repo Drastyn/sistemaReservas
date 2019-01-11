@@ -10,8 +10,6 @@ class Habitacion < ApplicationRecord
   validates  :estado_habitacion, presence: { message: " No puede estar en blanco"}
   validates :numero_habitacion, presence: {message: " No puede estar en blanco"}
   validates :numero_habitacion, numericality: {only_integer: true, message: "Recuerda que debe ser un numero entero"}
-  #validates :numero_habitacion, :status_habitacion, uniqueness: {message: " Ya esta en uso, si deseas usarlo debes eliminar la habitacion que ya lo tiene"}
-  #valida que el campo de la tarifa no este en blanco
   validates_uniqueness_of :numero_habitacion, :scope => :status_habitacion
 
   def tarifa_no_nula
@@ -28,5 +26,4 @@ class Habitacion < ApplicationRecord
       end
     end
   end
-
 end

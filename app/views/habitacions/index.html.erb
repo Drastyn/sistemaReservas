@@ -17,7 +17,7 @@
       <p>pulse el número de la habitación para editar o eliminar</p>
     <% end %>
     <% @habitacions.each do |habitacion| %>
-      <% if habitacion.disponible? %>
+      <% if habitacion.disponible? && habitacion.activa? %>
         <% if user_signed_in? && current_user.admin? %>
           <h1><%= link_to habitacion.id, habitacion %></h1>
           <div>

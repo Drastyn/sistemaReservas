@@ -60,13 +60,6 @@ class HabitacionsController < ApplicationController
                            numero_habitacion: params[:habitacion][:numero_habitacion],
                            status_habitacion: params[:habitacion][:status_habitacion])
     end
-    @reservas = Reserva.all
-    @reservas.each do |reserva|
-      if @habitacions.id == reserva.habitacions_id
-        reserva.habitacion_numero = @habitacions.numero_habitacion
-        reserva.save
-      end
-    end
     if @habitacions.save
       redirect_to habitacions_path
     else
