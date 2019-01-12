@@ -61,6 +61,11 @@
       <a class="Face" href= "https://www.facebook.com/hostelmyhouse/">Facebook</a>
       <a class="booking" href= "https://www.booking.com/hotel/cl/my-house-hostel.es.html">Booking</a>
     </div>
+    <%flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %>">
+        <%= msg %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

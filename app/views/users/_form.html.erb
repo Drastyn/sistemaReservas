@@ -1,26 +1,53 @@
 <h1><%= name %> usuario</h1>
-<%= form_for @users do |f|%>
-  <% if @users.errors.any? %>
-    <div id = "errores_creacion_habitacion" >
-      <%= pluralize(@users.errors.count, "Errores") %>
-      <ul>
-        <% @users.errors.full_messages.each do |error| %>
-          <li ><%= error %> </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.select :user_role, ['user','admin']%>
-    <div class = "field">
-      <div class="field">
-        <%= f.select :estado_user, ['activo','inactivo']%>
-        <div class = "field">
-      <div class = "field">
-        <%= f.submit "Guardar", class:"btn btn-success" %>
+  <div>
+    <%= "Nombre de usuario: " %>
+    <%= @users.nombres_apellidos %>
+  </div>
+  <div>
+    <%= "Nick name: " %>
+    <%= @users.nick_name %>
+  </div>
+  <div>
+    <%= "Direccion: "%>
+    <%= @users.direccion %>
+  </div>
+  <div>
+    <%= "Telefono: +569 " %>
+    <%= @users.telefono %>
+  </div>
+  <div>
+    <%= "Fecha de nacimiento (dia/mes/año) " %>
+    <%= @users.fecha_nacimiento.day %>
+    <%= "/" %>
+    <%= @users.fecha_nacimiento.month %>
+    <%= "/" %>
+    <%= @users.fecha_nacimiento.year  %>
+  </div>
+  <div>
+    <%= @users.email %>
+  </div>
+  <%= form_for @users do |f|%>
+    <% if @users.errors.any? %>
+      <div id = "errores_creacion_habitacion" >
+        <%= pluralize(@users.errors.count, "Errores") %>
+        <ul>
+          <% @users.errors.full_messages.each do |error| %>
+            <li ><%= error %> </li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-    <div class = "btn btn-info">
-      <%= link_to "Volver", users_url %>
-    </div>
-<% end %>
+    <% end %>
+    <div class="field">
+      <%= f.select :user_role, ['user','admin']%>
+      <div class = "field">
+        <div class="field">
+          <%= f.select :estado_user, ['activo','inactivo']%>
+          <div class = "field">
+        <div class = "field">
+          <%= f.submit "Guardar", class:"btn btn-success" %>
+        </div>
+      </div>
+      <div class = "btn btn-info">
+        <%= link_to "Volver", users_url %>
+      </div>
+  <% end %>

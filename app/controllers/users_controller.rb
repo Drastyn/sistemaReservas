@@ -36,12 +36,12 @@ class UsersController < ApplicationController
   end
   def update
     @users = User.find(params[:id])
-    if @users.update(nombres_apellidos: params[:user][:nombres_apellidos],
-                     nick_name: params[:user][:nick_name],
-                     direccion: params[:user][:direccion],
-                     telefono: params[:user][:telefono],
-                     fecha_nacimiento: params[:user][:fecha_nacimiento],
-                     email: params[:user][:email],
+    if @users.update(#nombres_apellidos: params[:user][:nombres_apellidos],
+                     #nick_name: params[:user][:nick_name],
+                     #direccion: params[:user][:direccion],
+                     #telefono: params[:user][:telefono],
+                     #fecha_nacimiento: params[:user][:fecha_nacimiento],
+                     #email: params[:user][:email],
                      user_role: params[:user][:user_role],
                      estado_user: params[:user][:estado_user])
       @exito = mensaje_usuario_editado_con_exito

@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   def autenticar
     if user_signed_in? && current_user.inactivo?
       sign_out_and_redirect(current_user)
+      @mensaje_desactivado = mensaje_usuario_inactivo
     end
   end
   def index
