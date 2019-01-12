@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     @habitaciones.each do |habitacion|
       if user_signed_in? && current_user.user?
         if @reserva.habitacions_id == habitacion.id
-          if habitacion.disponible?
+          if habitacion.disponible? && habitacion.activa?
             @reserva.habitacion_numero = habitacion.numero_habitacion
             habitacion.estado_habitacion = 1
             habitacion.save
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
             redirect_to reservas_path ,  success: "Reserva realizada con exito"
           else
             @reserva.delete
-            redirect_to reservas_path ,  danger: "No se ha realizado la reserva, esa habitacion ya esta reservada"
+            redirect_to reservas_path ,  danger: "No se ha realizado la reserva, esa habitacion ya esta reservada o puede que ni siquiera exista"
           end
         end
       end
