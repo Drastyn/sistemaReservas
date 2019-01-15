@@ -10,12 +10,20 @@ class Habitacion < ApplicationRecord
   validates  :estado_habitacion, presence: { message: " No puede estar en blanco"}
   validates :numero_habitacion, presence: {message: " No puede estar en blanco"}
   validates :numero_habitacion, numericality: {only_integer: true, message: "Recuerda que debe ser un numero entero"}
+  validate :validar_numeros_habitaciones
   #valida que el numero de la habitacion sea unico si esta activa
   validates_uniqueness_of :numero_habitacion, conditions: -> {where(status_habitacion: 'activa')}
   #valida que el precio de la tarifa no sea nulo (blanco).
   def tarifa_no_nula
     if tarifa_habitacion == nil
       errors.add(:tarifa_habitacion,"Campo en blanco")
+    end
+  end
+
+  #valida el numero de habitacion no mayor 9
+  def validar_numeros_habitaciones
+    if numero_habitacion > 9  || numero_habitacion < 1
+      errors.add(:numero_habitacion,"recuerda que nuestro rango de habitaciones es de 1 a 9")
     end
   end
 
