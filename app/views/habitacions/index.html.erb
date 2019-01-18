@@ -14,70 +14,69 @@
         <%= link_to "Crear Habitacion", new_habitacion_path %>
       </div>
       <p> <!-- salto de linea --> </p>
-      <p>pulse el número de la habitación para editar o eliminar</p>
+      <p>Pulse en el código para editar la habitación</p>
     <% end %>
-    <% @habitacions.each do |habitacion| %>
-        <% if user_signed_in? && current_user.admin? %>
-           <h1><%= link_to habitacion.id, habitacion %></h1>
-           <div>
-             <%= "Numero de la habitacion: " %>
-             <%= habitacion.numero_habitacion %>
-           </div>
-           <div>
-             <%= "Status de la habitacion: " %>
-             <%= habitacion.status_habitacion %>
-           </div>
-          <div>
-            <%= "Descripción de la habitacion: " %>
-            <%= habitacion.descripcionHabitacion %>
-          </div>
-          <div>
-            <%= "Cantidad de personas: " %>
-            <%= habitacion.numeroPersonas %>
-          </div>
-          <div>
-            <%= "Tipo de habitación: " %>
-            <%= habitacion.tipoHabitacion %>
-          </div>
-          <div>
-            <%= "La habitación esta " %>
-            <%= habitacion.estado_habitacion%>
-          </div>
-          <div>
-            <%= "Tarifa de la habitación: $" %>
-            <%= habitacion.tarifa_habitacion %>
-          </div>
-       <% else %>
-          <% if habitacion.disponible? && habitacion.activa? %>
-           <h1><%= habitacion.numero_habitacion %></h1>
-           <div>
-             <%= "Descripción de la habitacion: " %>
-             <%= habitacion.descripcionHabitacion %>
-           </div>
-           <div>
-             <%= "Cantidad de personas: "  %>
-             <%= habitacion.numeroPersonas %>
-           </div>
-           <div>
-             <%= "Tipo de habitación: " %>
-             <%= habitacion.tipoHabitacion %>
-           </div>
-           <div>
-             <%= "La habitación esta: " %>
-             <%= habitacion.estado_habitacion%>
-           </div>
-           <div>
-             <%= "Tarifa de la habitación: $" %>
-             <%= habitacion.tarifa_habitacion %>
-           </div>
-           <% if user_signed_in? && current_user.user? %>
-             <div>
-               <%= "Codigo habitacion: " %>
-               <%= habitacion.id %>
-             </div>
-           <% end %>
+    <% if user_signed_in? && current_user.admin? %>
+      <table class = "table">
+          <thead>
+            <tr>
+              <th> Código </th>
+              <th> Número </th>
+              <th> Descipción </th>
+              <th> Cantidad de personas </th>
+              <th> Tipo </th>
+              <th> Tarifa </th>
+              <th> Estado </th>
+              <th> Status </th>
+            </tr>
+          </thead>
+        <tbody>
+          <% @habitacions.each do |habitacion| %>
+            <tr>
+              <td> <%= link_to habitacion.id, habitacion %> </td>
+              <td> <%= habitacion.numero_habitacion %> </td>
+              <td> <%= habitacion.descripcionHabitacion %> </td>
+              <td> <%= habitacion.numeroPersonas %> </td>
+              <td> <%= habitacion.tipoHabitacion %> </td>
+              <td> $ <%= habitacion.tarifa_habitacion %> </td>
+              <td> <%= habitacion.estado_habitacion %> </td>
+              <td> <%= habitacion.status_habitacion %> </td>
+            </tr>
           <% end %>
-       <% end %>
+        </tbody>
+      </table>
+       <% else %>
+         <% @habitacions.each do |habitacion| %>
+            <% if habitacion.disponible? && habitacion.activa? %>
+               <h1><%= habitacion.numero_habitacion %></h1>
+               <div>
+                 <%= "Descripción de la habitacion: " %>
+                 <%= habitacion.descripcionHabitacion %>
+               </div>
+               <div>
+                 <%= "Cantidad de personas: "  %>
+                 <%= habitacion.numeroPersonas %>
+               </div>
+               <div>
+                 <%= "Tipo de habitación: " %>
+                 <%= habitacion.tipoHabitacion %>
+               </div>
+               <div>
+                 <%= "La habitación esta: " %>
+                 <%= habitacion.estado_habitacion%>
+               </div>
+               <div>
+                 <%= "Tarifa de la habitación: $" %>
+                 <%= habitacion.tarifa_habitacion %>
+               </div>
+               <% if user_signed_in? && current_user.user? %>
+                 <div>
+                   <%= "Codigo habitacion: " %>
+                   <%= habitacion.id %>
+                 </div>
+               <% end %>
+            <% end %>
+         <% end %>
       <% end %>
     </div>
 </body>

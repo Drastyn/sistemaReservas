@@ -9,8 +9,8 @@
     <%if user_signed_in? && current_user.admin? %>
       <h1> Reservas </h1>
       <p> <!-- salto de linea --> </p>
-      <p>pulse el id de la reserva para editar o eliminar</p>
-      <p>pulse el id del usuario para ver sus detalles </p>
+      <p>Pulse el id de la reserva para editar o eliminar</p>
+      <p>Pulse el id del usuario para ver sus detalles </p>
       <table class = "table">
         <thead>
           <tr>
@@ -31,8 +31,8 @@
             <td> <%= reserva.habitacions_id %> </td>
             <td> <%= reserva.habitacion_numero %> </td>
             <td> <%= link_to reserva.users_id, edit_user_path(reserva.users_id)%> </td>
-            <td> <%= reserva.fecha_ingreso %> </td>
-            <td> <%= reserva.fecha_salida %> </td>
+            <td> <%= reserva.fecha_ingreso.day %> <%= "/" %> <%= reserva.fecha_ingreso.month %> <%= "/" %> <%= reserva.fecha_ingreso.year %> </td>
+            <td> <%= reserva.fecha_salida.day %> <%= "/" %> <%= reserva.fecha_salida.month %> <%= "/" %> <%= reserva.fecha_salida.year %> </td>
             <td> <%= reserva.estado_reserva %> </td>
           </tr>
           <% end %>
@@ -62,8 +62,8 @@
                   <td> <%= link_to "editar", reserva %> </td>
                   <td> <%= reserva.habitacions_id %> </td>
                   <td> <%= reserva.habitacion_numero %> </td>
-                  <td> <%= reserva.fecha_ingreso %> </td>
-                  <td> <%= reserva.fecha_salida %> </td>
+                  <td> <%= reserva.fecha_ingreso.day %> <%= "/" %> <%= reserva.fecha_ingreso.month %> <%= "/" %> <%= reserva.fecha_ingreso.year %>  </td>
+                  <td> <%= reserva.fecha_salida.day %> <%= "/" %> <%= reserva.fecha_salida.month %> <%= "/" %> <%= reserva.fecha_salida.year %> </td>
                   <td> <%= reserva.estado_reserva %> </td>
                 </tr>
               <% end %>

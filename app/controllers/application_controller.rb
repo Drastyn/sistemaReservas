@@ -8,10 +8,22 @@ class ApplicationController < ActionController::Base
   helper_method :dar_de_baja, :guardar_habitacion, :mensaje_no_se_puede_eliminar, :mensaje_no_se_puede_editar, :mensaje_se_edito_habitacion,
   :mensaje_usuario_editado_con_exito, :mensaje_usuario_con_error
 
+  def reserva_editada_con_exito
+    flash[:success] = "Reserva editada con exito"
+  end
+
+  def habitacion_creada_con_exito
+    flash[:success] = "Habitación creada con exito"
+  end
+
+  def habitacion_editada_con_exito
+    flash[:success] = "Habitación editada con exito"
+  end
 
   def mensaje_usuario_inactivo
       flash[:danger] = "Tu cuenta esta desactivada ponte en contacto con nuestro soporte al correo (agregar el correo de soporte cuando tengamos)"
   end
+
   def mensaje_usuario_con_error
     redirect_to users_path, danger: "No se ha editado el usuario"
   end

@@ -1,6 +1,6 @@
 <body id = "fondo_editar_datos">
   <div id = "contener_registro">
-    <h2>Editar Usuario</h2>
+    <h2>Editar Perfil</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -21,7 +21,7 @@
         <%= f.label :direccion, "Dirección" %>
         <%= f.text_field :direccion, autofocus: true, autocomplete: "direccion" %>
       </div>
-      
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

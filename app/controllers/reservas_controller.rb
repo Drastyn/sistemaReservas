@@ -56,6 +56,7 @@ class ReservasController < ApplicationController
                         estado_reserva: params[:reserva][:estado_reserva])
     end
     if @reservas.save
+      @mensaje = reserva_editada_con_exito
       redirect_to reservas_path
     else
       render :edit

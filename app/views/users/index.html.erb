@@ -2,6 +2,7 @@
   <div id = contener_usuarios>
     <% if user_signed_in? && current_user.admin? %>
       <h1> USUARIOS </h1>
+      <p>  Pulse en la id del usuario para ver </p>
       <div class = "btn btn-ligth">
         <%= link_to "Reservas", reservas_url %>
       </div>
@@ -25,7 +26,7 @@
               <td> <%= link_to user.id, user %> </td>
               <td> <%= user.nombres_apellidos %> </td>
               <td> <%= user.nick_name %> </td>
-              <td> <%= user.fecha_nacimiento %> </td>
+              <td> <%= user.fecha_nacimiento.day %>  <%= "/" %> <%= user.fecha_nacimiento.month %> <%= "/" %> <%= user.fecha_nacimiento.year %></td>
               <td> <%= user.direccion %> </td>
               <td> +569 <%= user.telefono %> </td>
               <td> <%= user.email %> </td>

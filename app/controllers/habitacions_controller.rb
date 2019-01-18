@@ -26,6 +26,7 @@ class HabitacionsController < ApplicationController
                                         status_habitacion: params[:habitacion][:status_habitacion])
     #validacion correcta de la creacion de la habitacion
     if @habitacions.save
+      @mensaje = habitacion_creada_con_exito
       redirect_to habitacions_path
     else
       render 'new'
@@ -61,6 +62,7 @@ class HabitacionsController < ApplicationController
                            status_habitacion: params[:habitacion][:status_habitacion])
     end
     if @habitacions.save
+      @mensaje = habitacion_editada_con_exito
       redirect_to habitacions_path
     else
       render :edit
