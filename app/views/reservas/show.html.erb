@@ -1,17 +1,23 @@
 <body id = "fondo_habitaciones">
 <div id = "contener_habitaciones">
-    <h1><%= @reservas.id %></h1>
-    <div>
-      <%= @reservas.habitacions_id %>
-    </div>
-    <div>
-      <%= @reservas.fecha_ingreso %>
-    </div>
-    <div>
-      <%= @reservas.fecha_salida %>
-    </div>
-    <div class = "btn btn-info" id = "boton_guardado_error">
-      <%= link_to "Editar", edit_reserva_path(@reservas) %>
-    </div>
+  <table class = "table">
+    <thead>
+    <tr>
+      <th> Numero habitacion </th>
+      <th> Fecha de ingreso </th>
+      <th> Fecha de salida </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td> <%= @reservas.habitacion_numero %> </td>
+      <td> <%= @reservas.fecha_ingreso.day %> <%= "/" %> <%= @reservas.fecha_ingreso.month %> <%= "/" %> <%= @reservas.fecha_ingreso.year %>  </td>
+      <td> <%= @reservas.fecha_salida.day %> <%= "/" %> <%= @reservas.fecha_salida.month %> <%= "/" %> <%= @reservas.fecha_salida.year %> </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class = "btn btn-info">
+    <%= link_to "Volver", reservas_url %>
+  </div>
 </div>
 </body>

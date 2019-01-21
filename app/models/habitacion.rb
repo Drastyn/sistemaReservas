@@ -12,6 +12,7 @@ class Habitacion < ApplicationRecord
   validates :numero_habitacion, numericality: {only_integer: true, message: "Recuerda que debe ser un numero entero"}
   validate :validar_numeros_habitaciones
 
+
   def numero_habitacion_no_blanco
     if numero_habitacion.blank?
       errors.add(:numero_habitacion,"No puede estar en blanco")

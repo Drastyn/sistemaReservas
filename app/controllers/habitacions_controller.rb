@@ -1,6 +1,7 @@
 class HabitacionsController < ApplicationController
-  before_action :authenticate_admin!, except: [:index]#solo el administrador puede crear una habitacion (los usuarios comunes
+  before_action :authenticate_admin!, except: [:index, :show]#solo el administrador puede crear una habitacion (los usuarios comunes
   #ven solo ven las habitaciones disponibles)
+  #before_action :authenticate_user!, except: [:show]
   #GET /habitacions
   def index
     @habitacions = Habitacion.all
@@ -23,7 +24,8 @@ class HabitacionsController < ApplicationController
                                         tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
                                         estado_habitacion: params[:habitacion][:estado_habitacion],
                                         numero_habitacion: params[:habitacion][:numero_habitacion],
-                                        status_habitacion: params[:habitacion][:status_habitacion])
+                                        status_habitacion: params[:habitacion][:status_habitacion],
+                                        photo: params[:habitacion][:photo])
     #validacion correcta de la creacion de la habitacion
     if @habitacions.save
       @mensaje = habitacion_creada_con_exito
@@ -59,7 +61,8 @@ class HabitacionsController < ApplicationController
                            tarifa_habitacion: params[:habitacion][:tarifa_habitacion],
                            estado_habitacion: params[:habitacion][:estado_habitacion],
                            numero_habitacion: params[:habitacion][:numero_habitacion],
-                           status_habitacion: params[:habitacion][:status_habitacion])
+                           status_habitacion: params[:habitacion][:status_habitacion],
+                           photo: params[:habitacion][:photo])
     end
     if @habitacions.save
       @mensaje = habitacion_editada_con_exito

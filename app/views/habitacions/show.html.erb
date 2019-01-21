@@ -1,25 +1,36 @@
 <body id = "fondo_habitaciones">
   <div id = "contener_habitaciones">
-    <% if user_signed_in? && current_user.admin? %>
-    <h1><%= @habitacions.id %></h1>
-    <div>
-      <%= @habitacions.descripcionHabitacion %>
-    </div>
-    <div>
-      <%= @habitacions.numeroPersonas %>
-    </div>
-    <div>
-      <%= @habitacions.tipoHabitacion %>
-    </div>
-    <div>
-      <%= @habitacions.estado_habitacion%>
-    </div>
-    <div>
-      <%= @habitacions.tarifa_habitacion %>
-    </div>
-    <div class = "btn btn-info" id = "boton_guardado_error">
-      <%= link_to "Editar", edit_habitacion_path(@habitacions) %>
-    </div>
+    <% if user_signed_in? && current_user.admin? || current_user.user?%>
+      <table class = "table">
+        <thead>
+        <tr>
+          <th> Código </th>
+          <th> Número </th>
+          <th> Descipción </th>
+          <th> Cantidad de personas </th>
+          <th> Tipo </th>
+          <th> Tarifa $ </th>
+        </tr>
+        </thead>
+        <tbody>
+          <thead>
+          <tr>
+            <td> <%= @habitacions.id %> </td>
+            <td> <%= @habitacions.numero_habitacion %> </td>
+            <td> <%= @habitacions.descripcionHabitacion %> </td>
+            <td> <%= @habitacions.numeroPersonas %> </td>
+            <td> <%= @habitacions.tipoHabitacion %> </td>
+            <td> <%= @habitacions.tarifa_habitacion %> </td>
+          </tr>
+          </thead>
+        </tbody>
+      </table>
+      <div class="field">
+        <%= image_tag @habitacions.photo.url(:thumb) %>
+      </div>
+      <div class = "btn btn-info">
+        <%= link_to "Volver", habitacions_url %>
+      </div>
   <%end%>
   </div>
 </body>

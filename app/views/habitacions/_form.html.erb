@@ -31,6 +31,9 @@
   <div class="field">
     <%= f.select :status_habitacion, ['activa','inactiva']%>
   </div>
+  <div class="field">
+    Imagen Habitacion: <%= f.file_field :photo%>
+  </div>
   <div class = "field">
     <div class = "field">
     <%= f.submit "Guardar", class:"btn btn-success" %>
