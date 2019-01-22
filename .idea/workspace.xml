@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fbcc39d-39a5-4199-becb-082882fd2ba2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sistemaReservas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sistemaReservas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/habitacions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/habitacions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/application_record.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/application_record.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/habitacion.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/habitacion.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/habitacions/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/habitacions/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/habitacions/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/habitacions/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/habitacions/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/habitacions/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/reservas/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/reservas/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/reservas/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/reservas/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-    </list>
+    <list default="true" id="9fbcc39d-39a5-4199-becb-082882fd2ba2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -54,28 +40,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/reservas/show.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/models/application_record.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/habitacions/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="55" column="22" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="22" />
+            <state relative-caret-position="135">
+              <caret line="9" column="138" selection-start-line="9" selection-start-column="138" selection-end-line="9" selection-end-column="138" />
             </state>
           </provider>
         </entry>
@@ -135,9 +103,9 @@
         <option value="$PROJECT_DIR$/app/controllers/habitacions_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/habitacion.rb" />
         <option value="$PROJECT_DIR$/app/models/application_record.rb" />
-        <option value="$PROJECT_DIR$/app/views/habitacions/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/habitacions/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/habitacions/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reservas/show.html.erb" />
       </list>
     </option>
@@ -169,21 +137,13 @@
               <item name="sistemaReservas" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistemaReservas" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistemaReservas" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistemaReservas" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="habitacions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistemaReservas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistemaReservas" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="reservas" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistemaReservas" type="b2602c69:ProjectViewProjectNode" />
@@ -366,13 +326,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96135000" />
+    <option name="totallyTimeSpent" value="98286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="30" width="960" height="1050" extended-state="4" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25929978" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25929978" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -385,7 +344,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" sideWeight="0.49888143" weight="0.3297062" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49888143" visible="true" weight="0.26384366" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49888143" visible="true" weight="0.26384366" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50111854" side_tool="true" weight="0.3297062" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32969433" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -599,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/habitacions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -615,13 +567,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/clientes/show.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/application_record.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="138" selection-start-line="9" selection-start-column="138" selection-end-line="9" selection-end-column="138" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/clientes/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
@@ -658,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reservas/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -672,29 +610,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/habitacions/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/reservas.scss">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/habitacions/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/habitacions/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
@@ -703,10 +620,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/habitacions/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/habitacions/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="41" column="2" selection-start-line="41" selection-start-column="2" selection-end-line="43" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/habitacions/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reservas/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="180">
+          <caret line="12" column="51" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/application_record.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="138" selection-start-line="9" selection-start-column="138" selection-end-line="9" selection-end-column="138" />
         </state>
       </provider>
     </entry>

@@ -1,6 +1,5 @@
 <body id = "fondo_habitaciones">
   <div id = "contener_habitaciones">
-    <% if user_signed_in? && current_user.admin? || current_user.user?%>
       <table class = "table">
         <thead>
         <tr>
@@ -31,6 +30,5 @@
       <div class = "btn btn-info">
         <%= link_to "Volver", habitacions_url %>
       </div>
-  <%end%>
   </div>
 </body>
