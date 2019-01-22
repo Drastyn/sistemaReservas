@@ -2,7 +2,6 @@
   <div id = contener_usuarios>
     <% if user_signed_in? && current_user.admin? %>
       <h1> USUARIOS </h1>
-      <p>  Pulse en la id del usuario para ver </p>
       <div class = "btn btn-ligth">
         <%= link_to "Reservas", reservas_url %>
       </div>
@@ -23,7 +22,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td> <%= link_to user.id, user %> </td>
+              <td> <%= user.id %> </td>
               <td> <%= user.nombres_apellidos %> </td>
               <td> <%= user.nick_name %> </td>
               <td> <%= user.fecha_nacimiento.day %>  <%= "/" %> <%= user.fecha_nacimiento.month %> <%= "/" %> <%= user.fecha_nacimiento.year %></td>
@@ -32,6 +31,8 @@
               <td> <%= user.email %> </td>
               <td> <%= user.user_role %> </td>
               <td> <%= user.estado_user %></td>
+              <td> <%= link_to "VER", user, class:"btn btn-success" %> </td>
+              <td> <%= link_to "Editar", edit_user_path(user), class: "btn btn-info" %> </td>
             </tr>
           <% end %>
         </tbody>

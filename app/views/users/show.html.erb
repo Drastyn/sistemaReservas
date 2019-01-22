@@ -1,33 +1,36 @@
 <body id = "fondo_habitaciones">
 <div id = "contener_habitaciones">
   <% if user_signed_in? && current_user.admin? %>
-    <h1><%= @users.id %></h1>
-    <div>
-      <%= @users.nombres_apellidos %>
-    </div>
-    <div>
-      <%= @users.nick_name %>
-    </div>
-    <div>
-      <%= @users.direccion %>
-    </div>
-    <div>
-      <%= @users.telefono %>
-    </div>
-    <div>
-      <%= @users.fecha_nacimiento %>
-    </div>
-    <div>
-      <%= @users.email %>
-    </div>
-    <div>
-      <%= @users.user_role %>
-    </div>
-    <div>
-      <%= @users.estado_user %>
-    </div>
-    <div class = "btn btn-info" id = "boton_guardado_error">
-      <%= link_to "Editar", edit_user_path(@users) %>
+    <table class = "table">
+      <thead>
+      <tr>
+        <th> ID </th>
+        <th> Nombres y Apellidos </th>
+        <th> Nombre de usuario </th>
+        <th> Fecha de nacimiento </th>
+        <th> Dirección </th>
+        <th> Teléfono </th>
+        <th> Email </th>
+        <th> Rol del usuario </th>
+        <th> Estado del usuario </th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <%= @users.id %> </td>
+          <td> <%= @users.nombres_apellidos %> </td>
+          <td> <%= @users.nick_name %> </td>
+          <td> <%= @users.fecha_nacimiento.day %>  <%= "/" %> <%= @users.fecha_nacimiento.month %> <%= "/" %> <%= @users.fecha_nacimiento.year %></td>
+          <td> <%= @users.direccion %> </td>
+          <td> +569 <%= @users.telefono %> </td>
+          <td> <%= @users.email %> </td>
+          <td> <%= @users.user_role %> </td>
+          <td> <%= @users.estado_user %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class = "btn btn-info">
+      <%= link_to "Volver", users_url %>
     </div>
   <%end%>
 </div>
