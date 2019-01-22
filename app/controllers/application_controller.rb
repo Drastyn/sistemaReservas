@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def mensaje_usuario_inactivo
-      flash[:danger] = "Tu cuenta esta desactivada ponte en contacto con nuestro soporte al correo (agregar el correo de soporte cuando tengamos)"
+      flash[:danger] = "Tu cuenta esta desactivada ponte en contacto con nuestro soporte al correo (agregar el correo de soporte cuando tengamos), o al número del hostal"
   end
 
   def mensaje_usuario_con_error

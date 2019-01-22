@@ -14,7 +14,7 @@ class Habitacion < ApplicationRecord
 
   has_attached_file :photo,
                     :styles => { medium: "1280x720", thumb: "800x600", mini: "400x200" },
-                    :default_url => "https://sistemadereservas.herokuapp.com:style/missing.png"
+                    :default_url => "https://sistemadereservas.herokuapp.com/:style/missing.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   def numero_habitacion_no_blanco

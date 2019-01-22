@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 2019_01_21_214425) do
   end
 
   create_table "reservas", force: :cascade do |t|
+    t.integer "cantidadPersonas"
     t.integer "cantidadHabitaciones"
+    t.string "estadoReserva"
+    t.integer "precioReserva"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "habitacions_id"
