@@ -16,8 +16,17 @@ class Habitacion < ApplicationRecord
                     style: { medium: "1280x720", thumb: "800x600", mini: "400x200" },
                     default_url: "/images/:style/missing_photo.png",
                     preserve_files: true
-  validates_attachment :photo, content_type: { content_type: [/png\z/, /jpe?g\z/]}
-  validates :photo, attachment_presence: :true
+  validates_attachment_content_type :photo,
+                                    :content_type => /^image\/(png|gif|jpeg)/,
+                                    :message => 'Solo debes subir imagenes con formato png, gif o jpeg'
+  validates_attachment_presence :photo,
+                                :message => 'Recuerda que debes subir una imagen de la habitacion'
+
+  after_validation :clean_paperclip_errors
+
+  def clean_paperclip_errors
+    errors.delete(:photo_content_type)
+  end
 
   def numero_habitacion_no_blanco
     if numero_habitacion.blank?

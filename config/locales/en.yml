@@ -49,7 +49,5 @@ es:
            attributes:
              numero_habitacion:
                taken: " Ya esta en uso, debes desactivar la habitacion que lo tenga para poder usarlo o puedes elegir otro"
-             photo:
-               blank: "Recuerda que debes subir una imagen de la habitacion"
-             photo_content_type:
-               invalid: "Recuerda que el formato de imagen es jpeg o png"
+
+
