@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :telefono, uniqueness: {message: " Ya esta registrado"}
   validates :telefono, length:{is: 8, message: " Invalido"}
   validates :nombres_apellidos, presence: {message: "no puede estar en blanco"}
-  validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: " Solo puede contener letras" }
+  validates :nombres_apellidos, format: { :with =>/\A+[a-zA-Z\s]+\z/, message: " Solo puede contener letras (si tienen acentos, por favor quitalos)" }
   validates :nombres_apellidos, length: {in: 20..50, message: " Ingrese su nombre completo por favor"}
   validate   :mayor_de_edad
 
