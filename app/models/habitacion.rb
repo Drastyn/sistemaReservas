@@ -13,14 +13,11 @@ class Habitacion < ApplicationRecord
   validate :validar_numeros_habitaciones
 
   has_attached_file :photo,
-                    :styles => { medium: "1280x720", thumb: "800x600", mini: "400x200" },
-                    :default_url => "/images/:style/missing_photo.png"
-  validates_attachment_content_type :photo, content_type: [/png\z/, /jpe?g\z/]
+                    style: { medium: "1280x720", thumb: "800x600", mini: "400x200" },
+                    default_url: "/images/:style/missing_photo.png",
+                    preserve_files: true
+  validates_attachment :photo, content_type: { content_type: [/png\z/, /jpe?g\z/]}
   validates :photo, attachment_presence: :true
-
-  has_attached_file :photo, {
-      preserve_files: "true",
-  }
 
   def numero_habitacion_no_blanco
     if numero_habitacion.blank?
