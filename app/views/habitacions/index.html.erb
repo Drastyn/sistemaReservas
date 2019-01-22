@@ -50,33 +50,33 @@
        <% else %>
           <table class = "table">
             <thead>
-            <tr>
-              <th> Código </th>
-              <th> Número </th>
-              <th> Descipción </th>
-              <th> Cantidad de personas </th>
-              <th> Tipo </th>
-              <th> Tarifa $</th>
-            </tr>
+              <tr>
+                <th> Código </th>
+                <th> Número </th>
+                <th> Descipción </th>
+                <th> Cantidad de personas </th>
+                <th> Tipo </th>
+                <th> Tarifa $</th>
+              </tr>
             </thead>
             <tbody>
-         <% @habitacions.each do |habitacion| %>
-            <% if habitacion.disponible? && habitacion.activa? %>
-                <thead>
-                  <tr>
-                    <td> <%= habitacion.id %> </td>
-                    <td> <%= habitacion.numero_habitacion %> </td>
-                    <td> <%= habitacion.descripcionHabitacion %> </td>
-                    <td> <%= habitacion.numeroPersonas %> </td>
-                    <td> <%= habitacion.tipoHabitacion %> </td>
-                    <td> <%= habitacion.tarifa_habitacion %> </td>
-                    <td> <%= link_to "VER", habitacion , class:"btn btn-success" %> </td>
-                  </tr>
-                </thead>
-                </tbody>
-              </table>
-             <% end %>
-          <% end %>
+               <% @habitacions.each do |habitacion| %>
+                  <% if habitacion.disponible? && habitacion.activa? %>
+                      <thead>
+                        <tr>
+                          <td> <%= habitacion.id %> </td>
+                          <td> <%= habitacion.numero_habitacion %> </td>
+                          <td> <%= habitacion.descripcionHabitacion %> </td>
+                          <td> <%= habitacion.numeroPersonas %> </td>
+                          <td> <%= habitacion.tipoHabitacion %> </td>
+                          <td> <%= habitacion.tarifa_habitacion %> </td>
+                          <td> <%= link_to "VER", habitacion , class:"btn btn-success" %> </td>
+                        </tr>
+                      </thead>
+                  <% end %>
+                <% end %>
+            </tbody>
+          </table>
     <% end %>
     </div>
 </body>
