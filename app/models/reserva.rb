@@ -14,6 +14,14 @@ class Reserva < ApplicationRecord
   validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero (recuerda que es un numero entero)"}
   validate :validate_codigo_habitacion
   validate :estadia_maxima
+  validate :singularidad_rango_fechas
+
+  def singularidad_rango_fechas
+    errors.add(:fecha_ingreso, "No esta disponible") unless Reserva.where("? >= fecha_ingreso AND ? <= fecha_salida",
+                                                                          fecha_ingreso, fecha_ingreso).count == 0
+    errors.add(:fecha_salida, "No esta disponible") unless Reserva.where("? >= fecha_ingreso AND ? <= fecha_salida",
+                                                                         fecha_salida, fecha_salida).count == 0
+  end
 
   def validate_codigo_habitacion
     errors.add(:habitacions_id, "(Codigo) es invalido, puede que la habitacion no exista o ya este reservada") unless Habitacion.exists?(self.habitacions_id)
