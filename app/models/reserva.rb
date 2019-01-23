@@ -5,8 +5,8 @@ class Reserva < ApplicationRecord
   #validates :cantidadHabitaciones, numericality: {only_integer: true, message: "Favor ingrese la cantidad de habitacion para hacer la reserva"}, presence: {message: "campo en blanco"}
   #validates :estadoReserva, length: {in: 7..50, message: "Favor ingrese estado"}, presence: {message: "campo en blanco"}
   #validates :precioReserva, numericality: {only_integer: true, message: "Cantidad total invalida"}, presence: {message: "campo en blanco"}
-  validate :validar_entrada
-  validate :validar_salida
+  validate :validar_entrada, on: [:create,:new]
+  validate :validar_salida, on: [:create, :new]
   validate :fechas_distintas
   validate :salida_mayor_que_entrada
   validate :numero_habitacion_no_blanco

@@ -41,7 +41,7 @@
     <% end %>
     <% if user_signed_in? && current_user.user? %>
       <h1> Mis Reservas </h1>
-
+      <p> si deseas realizar un cambio, favor de contactar con el hostal </p>
       <table class = "table">
         <thead>
           <tr>
@@ -63,8 +63,6 @@
                   <td> <%= reserva.fecha_ingreso.day %> <%= "/" %> <%= reserva.fecha_ingreso.month %> <%= "/" %> <%= reserva.fecha_ingreso.year %>  </td>
                   <td> <%= reserva.fecha_salida.day %> <%= "/" %> <%= reserva.fecha_salida.month %> <%= "/" %> <%= reserva.fecha_salida.year %> </td>
                   <td> <%= reserva.estado_reserva %> </td>
-                  <td> <%= link_to "VER", reserva, class:"btn btn-success" %> </td>
-                  <td> <%= link_to "Editar", edit_reserva_path(reserva), class: "btn btn-info" %> </td>
                 </tr>
               <% end %>
             <% end %>

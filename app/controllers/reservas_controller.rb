@@ -2,13 +2,7 @@ class ReservasController < ApplicationController
   #GET /reservas
 
   #permite el acceso solo a los usuarios (comunes)
-  def authenticate_user!
-    unless current_user.present?
-      redirect_to root_path
-    end
-  end
-
-  before_action :authenticate_user!
+  before_action :authenticate_admin!, except: [:index,:show,:new,:create]
   def index
     @reservas = Reserva.all
   end
