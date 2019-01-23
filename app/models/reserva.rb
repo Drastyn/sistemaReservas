@@ -14,7 +14,17 @@ class Reserva < ApplicationRecord
   validates :habitacions_id, numericality: {only_integer: true, message: " Ingresa solo el numero (recuerda que es un numero entero)"}
   validate :validate_codigo_habitacion
   validate :estadia_maxima
-  validate :singularidad_rango_fechas
+  validate :fecha_anticipación, on: [:create,:new]
+  #validate :singularidad_rango_fechas
+
+  def fecha_anticipación
+    if !fecha_ingreso.blank?
+      anticipo = fecha_ingreso.day - Date.today.day
+      if anticipo != 3
+        errors.add(:fecha_ingreso,"Recuerda que debes realizar tu reserva con 3 días de anticipación")
+      end
+    end
+  end
 
   def singularidad_rango_fechas
     errors.add(:fecha_ingreso, "No esta disponible") unless Reserva.where("? >= fecha_ingreso AND ? <= fecha_salida",
